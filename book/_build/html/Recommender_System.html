@@ -1,0 +1,2375 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Recommender System &#8212; CA4015 Music Recommender System</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Data Exploration" href="Data_Exploration.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CA4015 Music Recommender System</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data_Exploration.html">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Music Recommender System
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Recommender_System.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dockreg/ca4015_assignment_3"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dockreg/ca4015_assignment_3/issues/new?title=Issue%20on%20page%20%2FRecommender_System.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dockreg/ca4015_assignment_3/master?urlpath=tree/docs/Recommender_System.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Music Recommender System
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-notebook-is-split-into-4-sections">
+     The notebook is split into 4 sections:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-required-dependencies">
+     Import required dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preliminaries">
+     1) Preliminaries
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#building-matrix">
+       Building matrix
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calculating-the-error">
+       Calculating the error
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-the-matrix-factorization-model">
+     2) Training the Matrix Factorization model
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#collaborative-filtering-model-cf-model">
+       Collaborative Filtering Model (CF Model)
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#build-the-model">
+       Build the model
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#changing-user-id-and-artist-id">
+       Changing user id and artist id
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#normalisation">
+       Normalisation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#build-the-cf-model-and-train-it">
+       Build the CF Model and train it
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inspecting-the-embeddings">
+     3) Inspecting the Embeddings
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#testing">
+       Testing
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#model-initialisation">
+       Model initialisation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regularization-in-matrix-factorization">
+     4) Regularization In Matrix Factorization
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Testing
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     Results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#novel-lyrics-display">
+   Novel Lyrics Display
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="music-recommender-system">
+<h1>Music Recommender System<a class="headerlink" href="#music-recommender-system" title="Permalink to this headline">¶</a></h1>
+<img src="https://www.incimages.com/uploaded_files/image/1920x1080/getty_626660256_2000108620009280158_379902.jpg" width=750 height=400 /><p>This will detail all of the steps involved in creating this music recommender system. This code is based on the google colab notebook and educational code available at:</p>
+<p><a class="reference external" href="https://colab.research.google.com/github/google/eng-edu/blob/main/ml/recommendation-systems/recommendation-systems.ipynb?utm_source=ss-recommendation-systems&amp;utm_campaign=colab-external&amp;utm_medium=referral&amp;utm_content=recommendation-systems#scrollTo=StMo4lDmLqpc">https://colab.research.google.com/github/google/eng-edu/blob/main/ml/recommendation-systems/recommendation-systems.ipynb?utm_source=ss-recommendation-systems&amp;utm_campaign=colab-external&amp;utm_medium=referral&amp;utm_content=recommendation-systems#scrollTo=StMo4lDmLqpc</a></p>
+<div class="section" id="the-notebook-is-split-into-4-sections">
+<h2>The notebook is split into 4 sections:<a class="headerlink" href="#the-notebook-is-split-into-4-sections" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Building rating matrix/ Calculating error</p></li>
+<li><p>Training the matrix factorisation model</p></li>
+<li><p>Inspecting embeddings</p></li>
+<li><p>Regularisation in matrix factorisation</p></li>
+</ol>
+</div>
+<div class="section" id="import-required-dependencies">
+<h2>Import required dependencies<a class="headerlink" href="#import-required-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">import</span> <span class="nn">sklearn.manifold</span>
+<span class="kn">import</span> <span class="nn">tensorflow.compat.v1</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">disable_v2_behavior</span><span class="p">()</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">set_verbosity</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /Users/dockreg/anaconda3/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:111: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preliminaries">
+<h2>1) Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/artists.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/tags.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
+<span class="n">user_artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_artists.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">user_friends</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_friends.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">user_tagged_artists_tstamp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_taggedartists-timestamps.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">user_tagged_artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_taggedartists.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We create a function to be used later for splitting the data in testing and training sets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the data into training and test sets.</span>
+<span class="k">def</span> <span class="nf">split_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">holdout_fraction</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="n">holdout_fraction</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building-matrix">
+<h3>Building matrix<a class="headerlink" href="#building-matrix" title="Permalink to this headline">¶</a></h3>
+<p>We design a function that maps the <code class="docutils literal notranslate"><span class="pre">user_artists</span></code> data to a tensorflow sparsetensor representation. Most users will not have rated each artist so this is full of 0’s and hence becomes a very large matrix. This function allows us to efficiently capture this data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_rating_sparse_tensor</span><span class="p">(</span><span class="n">user_artists_df</span><span class="p">):</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">user_artists_df</span><span class="p">[[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="s1">&#39;artistID&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">user_artists_df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">SparseTensor</span><span class="p">(</span>
+        <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">,</span>
+        <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">dense_shape</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">user_artists</span><span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span> <span class="nb">len</span><span class="p">(</span><span class="n">artists</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculating-the-error">
+<h3>Calculating the error<a class="headerlink" href="#calculating-the-error" title="Permalink to this headline">¶</a></h3>
+<p>The model approximates the ratings matrix by a low-rank product. We need a way to measure the approximation error. We’ll start by using the Mean Squared Error of observed entries only. It is defined as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\text{MSE}(A, UV^\top)
+&amp;= \frac{1}{|\Omega|}\sum_{(i, j) \in\Omega}{( A_{ij} - (UV^\top)_{ij})^2} \\
+&amp;= \frac{1}{|\Omega|}\sum_{(i, j) \in\Omega}{( A_{ij} - \langle U_i, V_j\rangle)^2}
+\end{align*}
+\end{split}\]</div>
+<p>The function below is created to calculate this</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sparse_mean_square_error</span><span class="p">(</span><span class="n">sparse_ratings</span><span class="p">,</span> <span class="n">user_embeddings</span><span class="p">,</span> <span class="n">music_embeddings</span><span class="p">):</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">user_embeddings</span><span class="p">,</span> <span class="n">sparse_ratings</span><span class="o">.</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">music_embeddings</span><span class="p">,</span> <span class="n">sparse_ratings</span><span class="o">.</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]),</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">sparse_ratings</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="training-the-matrix-factorization-model">
+<h2>2) Training the Matrix Factorization model<a class="headerlink" href="#training-the-matrix-factorization-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="collaborative-filtering-model-cf-model">
+<h3>Collaborative Filtering Model (CF Model)<a class="headerlink" href="#collaborative-filtering-model-cf-model" title="Permalink to this headline">¶</a></h3>
+<p>This class trains a matrix factorization model. Stochastic gradient descent is used in the function as the optimiser.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CFModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">embedding_vars</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_embedding_vars</span> <span class="o">=</span> <span class="n">embedding_vars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_loss</span> <span class="o">=</span> <span class="n">loss</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span> <span class="o">=</span> <span class="n">metrics</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_embeddings</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">embedding_vars</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_embeddings</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">plot_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loss</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+            <span class="n">opt</span> <span class="o">=</span> <span class="n">optimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span>
+            <span class="n">train_op</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loss</span><span class="p">)</span>
+            <span class="n">local_init_op</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">group</span><span class="p">(</span>
+              <span class="n">tf</span><span class="o">.</span><span class="n">variables_initializer</span><span class="p">(</span><span class="n">opt</span><span class="o">.</span><span class="n">variables</span><span class="p">()),</span>
+              <span class="n">tf</span><span class="o">.</span><span class="n">local_variables_initializer</span><span class="p">())</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+                <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">())</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">tables_initializer</span><span class="p">())</span>
+                    <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">start_queue_runners</span><span class="p">()</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+            <span class="n">local_init_op</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+            <span class="n">iterations</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span> <span class="ow">or</span> <span class="p">({},)</span>
+            <span class="n">metrics_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">]</span>
+
+            <span class="c1"># Train and append results.</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">run</span><span class="p">((</span><span class="n">train_op</span><span class="p">,</span> <span class="n">metrics</span><span class="p">))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="n">num_iterations</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2"> iteration </span><span class="si">%d</span><span class="s2">: &quot;</span> <span class="o">%</span> <span class="n">i</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">items</span><span class="p">()]),</span>
+                        <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+                    <span class="n">iterations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">metric_val</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">metrics_vals</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+                        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                            <span class="n">metric_val</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_embedding_vars</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_embeddings</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">plot_results</span><span class="p">:</span>
+                <span class="c1"># Plot the metrics.</span>
+                <span class="n">num_subplots</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+                <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+                <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">num_subplots</span><span class="o">*</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">metric_vals</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">metrics_vals</span><span class="p">):</span>
+                    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_subplots</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metric_vals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">iterations</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">])</span>
+                    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="build-the-model">
+<h3>Build the model<a class="headerlink" href="#build-the-model" title="Permalink to this headline">¶</a></h3>
+<p>We build the model that uses the <code class="docutils literal notranslate"><span class="pre">sparse_mean_square_error</span></code> function. We write a function that builds a <code class="docutils literal notranslate"><span class="pre">CFModel</span></code> by creating the embedding variables and the train and test losses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_model</span><span class="p">(</span><span class="n">ratings</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">init_stddev</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+    
+    <span class="c1"># Split the ratings DataFrame into train and test.</span>
+    <span class="n">train_ratings</span><span class="p">,</span> <span class="n">test_ratings</span> <span class="o">=</span> <span class="n">split_dataframe</span><span class="p">(</span><span class="n">ratings</span><span class="p">)</span>
+    <span class="c1"># SparseTensor representation of the train and test datasets.</span>
+    <span class="n">A_train</span> <span class="o">=</span> <span class="n">build_rating_sparse_tensor</span><span class="p">(</span><span class="n">train_ratings</span><span class="p">)</span>
+    <span class="n">A_test</span> <span class="o">=</span> <span class="n">build_rating_sparse_tensor</span><span class="p">(</span><span class="n">test_ratings</span><span class="p">)</span>
+    <span class="c1"># Initialize the embeddings using a normal distribution.</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">A_train</span><span class="o">.</span><span class="n">dense_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">embedding_dim</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="n">init_stddev</span><span class="p">))</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">A_train</span><span class="o">.</span><span class="n">dense_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">embedding_dim</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="n">init_stddev</span><span class="p">))</span>
+    <span class="n">train_loss</span> <span class="o">=</span> <span class="n">sparse_mean_square_error</span><span class="p">(</span><span class="n">A_train</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+    <span class="n">test_loss</span> <span class="o">=</span> <span class="n">sparse_mean_square_error</span><span class="p">(</span><span class="n">A_test</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;train_error&#39;</span><span class="p">:</span> <span class="n">train_loss</span><span class="p">,</span>
+      <span class="s1">&#39;test_error&#39;</span><span class="p">:</span> <span class="n">test_loss</span>
+  <span class="p">}</span>
+    <span class="n">embeddings</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">&quot;userID&quot;</span><span class="p">:</span> <span class="n">U</span><span class="p">,</span>
+      <span class="s2">&quot;artistID&quot;</span><span class="p">:</span> <span class="n">V</span>
+  <span class="p">}</span>
+    <span class="k">return</span> <span class="n">CFModel</span><span class="p">(</span><span class="n">embeddings</span><span class="p">,</span> <span class="n">train_loss</span><span class="p">,</span> <span class="p">[</span><span class="n">metrics</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_artists</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>51</td>
+      <td>13883</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>52</td>
+      <td>11690</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>53</td>
+      <td>11351</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>54</td>
+      <td>10300</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>55</td>
+      <td>8983</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>92829</th>
+      <td>2100</td>
+      <td>18726</td>
+      <td>337</td>
+    </tr>
+    <tr>
+      <th>92830</th>
+      <td>2100</td>
+      <td>18727</td>
+      <td>297</td>
+    </tr>
+    <tr>
+      <th>92831</th>
+      <td>2100</td>
+      <td>18728</td>
+      <td>281</td>
+    </tr>
+    <tr>
+      <th>92832</th>
+      <td>2100</td>
+      <td>18729</td>
+      <td>280</td>
+    </tr>
+    <tr>
+      <th>92833</th>
+      <td>2100</td>
+      <td>18730</td>
+      <td>263</td>
+    </tr>
+  </tbody>
+</table>
+<p>92834 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>We convert our columns into the appropriate data type before running it through the model</p>
+</div>
+<div class="section" id="changing-user-id-and-artist-id">
+<h3>Changing user id and artist id<a class="headerlink" href="#changing-user-id-and-artist-id" title="Permalink to this headline">¶</a></h3>
+<p>We get errors when using the user data as is, as the user ID values and artist ID values are not in sequential order and are often higher than the index value so we will change them so they run from 0-1891, and 0-17631 respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_artists</span><span class="o">.</span><span class="n">userID</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2100
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_artists</span><span class="o">.</span><span class="n">artistID</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18745
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">return_inverse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint64</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">p2</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>    
+    <span class="n">out</span> <span class="o">=</span> <span class="n">p2</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inverse_user_id</span> <span class="o">=</span> <span class="n">return_inverse</span><span class="p">(</span><span class="n">user_artists</span><span class="o">.</span><span class="n">userID</span><span class="p">)</span>
+<span class="n">inverse_user_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   0,    0,    0, ..., 1891, 1891, 1891], dtype=uint64)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inverse_artist_id</span> <span class="o">=</span> <span class="n">return_inverse</span><span class="p">(</span><span class="n">user_artists</span><span class="o">.</span><span class="n">artistID</span><span class="p">)</span>
+<span class="n">inverse_artist_id</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   45,    46,    47, ..., 17617, 17618, 17619], dtype=uint64)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace id columns</span>
+<span class="n">user_artists</span><span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inverse_user_id</span>
+<span class="n">user_artists</span><span class="p">[</span><span class="s1">&#39;artistID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inverse_artist_id</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_artists</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>92834.000000</td>
+      <td>92834.000000</td>
+      <td>92834.00000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>944.222483</td>
+      <td>3235.736724</td>
+      <td>745.24393</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>546.751074</td>
+      <td>4197.216910</td>
+      <td>3751.32208</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.00000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>470.000000</td>
+      <td>430.000000</td>
+      <td>107.00000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>944.000000</td>
+      <td>1237.000000</td>
+      <td>260.00000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1416.000000</td>
+      <td>4266.000000</td>
+      <td>614.00000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1891.000000</td>
+      <td>17631.000000</td>
+      <td>352698.00000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can see the userID now has a max value of 1,891 and artistID has a max value of 17,631</p>
+</div>
+<div class="section" id="normalisation">
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this headline">¶</a></h3>
+<p>The variety in weights are very large which will cause issues with our <code class="docutils literal notranslate"><span class="pre">CFModel</span></code> so we normalise these values between a value of 0-1</p>
+<p>The code below can be uncommented to try a z score normalisation for different results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy the data</span>
+<span class="n">user_artists_norm</span> <span class="o">=</span> <span class="n">user_artists</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+  
+<span class="c1"># apply normalization techniques by Column weight</span>
+<span class="n">column</span> <span class="o">=</span> <span class="s1">&#39;weight&#39;</span>
+<span class="n">user_artists_norm</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">user_artists_norm</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">-</span> <span class="n">user_artists_norm</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">user_artists_norm</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">user_artists_norm</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>    
+
+<span class="c1"># z score normalisation</span>
+<span class="c1">#user_artists_norm[column] = (user_artists_norm[column] - user_artists_norm[column].mean()) / user_artists_norm[column].std()    </span>
+  
+<span class="c1"># view normalized data</span>
+<span class="n">user_artists_norm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>45</td>
+      <td>0.039360</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>46</td>
+      <td>0.033142</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>47</td>
+      <td>0.032181</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>48</td>
+      <td>0.029201</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>49</td>
+      <td>0.025467</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="build-the-cf-model-and-train-it">
+<h3>Build the CF Model and train it<a class="headerlink" href="#build-the-cf-model-and-train-it" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">(</span><span class="n">user_artists_norm</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">init_stddev</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">num_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-01 21:57:52.300490: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error=1.906033, test_error=1.933137
+ iteration 10: train_error=1.547279, test_error=1.685794
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 20: train_error=1.295970, test_error=1.513266
+ iteration 30: train_error=1.108595, test_error=1.384579
+ iteration 40: train_error=0.963041, test_error=1.284134
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 50: train_error=0.846618, test_error=1.203112
+ iteration 60: train_error=0.751424, test_error=1.136108
+ iteration 70: train_error=0.672236, test_error=1.079607
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 80: train_error=0.605439, test_error=1.031207
+ iteration 90: train_error=0.548442, test_error=0.989209
+ iteration 100: train_error=0.499332, test_error=0.952372
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 110: train_error=0.456663, test_error=0.919764
+ iteration 120: train_error=0.419320, test_error=0.890670
+ iteration 130: train_error=0.386429, test_error=0.864535
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 140: train_error=0.357293, test_error=0.840915
+ iteration 150: train_error=0.331351, test_error=0.819454
+ iteration 160: train_error=0.308146, test_error=0.799862
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 170: train_error=0.287300, test_error=0.781899
+ iteration 180: train_error=0.268503, test_error=0.765366
+ iteration 190: train_error=0.251491, test_error=0.750096
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 200: train_error=0.236044, test_error=0.735946
+ iteration 210: train_error=0.221975, test_error=0.722796
+ iteration 220: train_error=0.209125, test_error=0.710541
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 230: train_error=0.197355, test_error=0.699093
+ iteration 240: train_error=0.186549, test_error=0.688373
+ iteration 250: train_error=0.176604, test_error=0.678313
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 260: train_error=0.167430, test_error=0.668853
+ iteration 270: train_error=0.158950, test_error=0.659941
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 280: train_error=0.151095, test_error=0.651529
+ iteration 290: train_error=0.143807, test_error=0.643577
+ iteration 300: train_error=0.137030, test_error=0.636048
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 310: train_error=0.130720, test_error=0.628908
+ iteration 320: train_error=0.124833, test_error=0.622128
+ iteration 330: train_error=0.119333, test_error=0.615681
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 340: train_error=0.114187, test_error=0.609543
+ iteration 350: train_error=0.109365, test_error=0.603693
+ iteration 360: train_error=0.104840, test_error=0.598110
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 370: train_error=0.100588, test_error=0.592776
+ iteration 380: train_error=0.096589, test_error=0.587676
+ iteration 390: train_error=0.092821, test_error=0.582793
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 400: train_error=0.089269, test_error=0.578115
+ iteration 410: train_error=0.085915, test_error=0.573629
+ iteration 420: train_error=0.082745, test_error=0.569322
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 430: train_error=0.079746, test_error=0.565186
+ iteration 440: train_error=0.076906, test_error=0.561209
+ iteration 450: train_error=0.074214, test_error=0.557383
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 460: train_error=0.071659, test_error=0.553699
+ iteration 470: train_error=0.069233, test_error=0.550149
+ iteration 480: train_error=0.066927, test_error=0.546727
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 490: train_error=0.064733, test_error=0.543425
+ iteration 500: train_error=0.062644, test_error=0.540237
+ iteration 510: train_error=0.060654, test_error=0.537158
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 520: train_error=0.058756, test_error=0.534182
+ iteration 530: train_error=0.056945, test_error=0.531304
+ iteration 540: train_error=0.055215, test_error=0.528519
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 550: train_error=0.053562, test_error=0.525823
+ iteration 560: train_error=0.051981, test_error=0.523212
+ iteration 570: train_error=0.050468, test_error=0.520681
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 580: train_error=0.049019, test_error=0.518227
+ iteration 590: train_error=0.047632, test_error=0.515847
+ iteration 600: train_error=0.046301, test_error=0.513537
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 610: train_error=0.045024, test_error=0.511295
+ iteration 620: train_error=0.043799, test_error=0.509117
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 630: train_error=0.042623, test_error=0.507000
+ iteration 640: train_error=0.041492, test_error=0.504943
+ iteration 650: train_error=0.040406, test_error=0.502942
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 660: train_error=0.039360, test_error=0.500996
+ iteration 670: train_error=0.038354, test_error=0.499102
+ iteration 680: train_error=0.037386, test_error=0.497259
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 690: train_error=0.036453, test_error=0.495463
+ iteration 700: train_error=0.035554, test_error=0.493714
+ iteration 710: train_error=0.034687, test_error=0.492009
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 720: train_error=0.033851, test_error=0.490348
+ iteration 730: train_error=0.033044, test_error=0.488728
+ iteration 740: train_error=0.032266, test_error=0.487147
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 750: train_error=0.031514, test_error=0.485605
+ iteration 760: train_error=0.030787, test_error=0.484100
+ iteration 770: train_error=0.030085, test_error=0.482631
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error=0.029406, test_error=0.481197
+ iteration 790: train_error=0.028749, test_error=0.479795
+ iteration 800: train_error=0.028114, test_error=0.478426
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 810: train_error=0.027499, test_error=0.477088
+ iteration 820: train_error=0.026904, test_error=0.475780
+ iteration 830: train_error=0.026327, test_error=0.474501
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error=0.025768, test_error=0.473250
+ iteration 850: train_error=0.025227, test_error=0.472026
+ iteration 860: train_error=0.024702, test_error=0.470829
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 870: train_error=0.024193, test_error=0.469657
+ iteration 880: train_error=0.023699, test_error=0.468510
+ iteration 890: train_error=0.023220, test_error=0.467387
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error=0.022755, test_error=0.466287
+ iteration 910: train_error=0.022303, test_error=0.465210
+ iteration 920: train_error=0.021864, test_error=0.464154
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 930: train_error=0.021438, test_error=0.463120
+ iteration 940: train_error=0.021024, test_error=0.462106
+ iteration 950: train_error=0.020622, test_error=0.461113
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error=0.020230, test_error=0.460138
+ iteration 970: train_error=0.019850, test_error=0.459183
+ iteration 980: train_error=0.019479, test_error=0.458246
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 990: train_error=0.019119, test_error=0.457326
+ iteration 1000: train_error=0.018769, test_error=0.456424
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;train_error&#39;: 0.018768793, &#39;test_error&#39;: 0.45642427}]
+</pre></div>
+</div>
+<img alt="_images/Recommender_System_31_37.png" src="_images/Recommender_System_31_37.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inspecting-the-embeddings">
+<h2>3) Inspecting the Embeddings<a class="headerlink" href="#inspecting-the-embeddings" title="Permalink to this headline">¶</a></h2>
+<p>We look at the recommendations of the system using the dot product and cosine similarity which are two different similarity measures. We create a nearest neighbours function to recommend similar artists.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DOT</span> <span class="o">=</span> <span class="s1">&#39;dot&#39;</span>
+<span class="n">COSINE</span> <span class="o">=</span> <span class="s1">&#39;cosine&#39;</span>
+<span class="k">def</span> <span class="nf">compute_scores</span><span class="p">(</span><span class="n">query_embedding</span><span class="p">,</span> <span class="n">item_embeddings</span><span class="p">,</span> <span class="n">measure</span><span class="o">=</span><span class="n">DOT</span><span class="p">):</span>
+
+    <span class="n">u</span> <span class="o">=</span> <span class="n">query_embedding</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">item_embeddings</span>
+    <span class="k">if</span> <span class="n">measure</span> <span class="o">==</span> <span class="n">COSINE</span><span class="p">:</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">V</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">u</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">scores</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">artist_neighbors</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">title_substring</span><span class="p">,</span> <span class="n">measure</span><span class="o">=</span><span class="n">DOT</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+  <span class="n">ids</span> <span class="o">=</span>  <span class="n">artists</span><span class="p">[</span><span class="n">artists</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">title_substring</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+  <span class="n">titles</span> <span class="o">=</span> <span class="n">artists</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">ids</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">titles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Found no artists with title </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">title_substring</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nearest neighbors of : </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">titles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">titles</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Found more than one matching artist. Other candidates: </span><span class="si">{}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="mi">1</span><span class="p">:])))</span>
+  <span class="n">artistID</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">scores</span> <span class="o">=</span> <span class="n">compute_scores</span><span class="p">(</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">embeddings</span><span class="p">[</span><span class="s2">&quot;artistID&quot;</span><span class="p">][</span><span class="n">artistID</span><span class="p">],</span> <span class="n">model</span><span class="o">.</span><span class="n">embeddings</span><span class="p">[</span><span class="s2">&quot;artistID&quot;</span><span class="p">],</span>
+      <span class="n">measure</span><span class="p">)</span>
+  <span class="n">score_key</span> <span class="o">=</span> <span class="n">measure</span> <span class="o">+</span> <span class="s1">&#39; score&#39;</span>
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+      <span class="n">score_key</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">scores</span><span class="p">),</span>
+      <span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="n">artists</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+  <span class="p">})</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="n">score_key</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>We input an artist to see what recommendations our system returns to us</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artist_neighbors</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;Johnny Cash&quot;</span><span class="p">,</span> <span class="n">DOT</span><span class="p">)</span>
+<span class="n">artist_neighbors</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;Johnny Cash&quot;</span><span class="p">,</span> <span class="n">COSINE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nearest neighbors of : Johnny Cash.
+[Found more than one matching artist. Other candidates: Johnny Cash &amp; Willie Nelson]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dot score</th>
+      <th>names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5870</th>
+      <td>2.593627</td>
+      <td>Sofia Nizharadze</td>
+    </tr>
+    <tr>
+      <th>17373</th>
+      <td>2.554927</td>
+      <td>Amycanbe</td>
+    </tr>
+    <tr>
+      <th>5673</th>
+      <td>2.513354</td>
+      <td>Valve</td>
+    </tr>
+    <tr>
+      <th>6509</th>
+      <td>2.439311</td>
+      <td>Blood Axis</td>
+    </tr>
+    <tr>
+      <th>1108</th>
+      <td>2.423170</td>
+      <td>Claude Debussy</td>
+    </tr>
+    <tr>
+      <th>9219</th>
+      <td>2.365079</td>
+      <td>The Locust</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nearest neighbors of : Johnny Cash.
+[Found more than one matching artist. Other candidates: Johnny Cash &amp; Willie Nelson]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cosine score</th>
+      <th>names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>712</th>
+      <td>1.000000</td>
+      <td>Johnny Cash</td>
+    </tr>
+    <tr>
+      <th>5673</th>
+      <td>0.680766</td>
+      <td>Valve</td>
+    </tr>
+    <tr>
+      <th>17373</th>
+      <td>0.615704</td>
+      <td>Amycanbe</td>
+    </tr>
+    <tr>
+      <th>14427</th>
+      <td>0.608417</td>
+      <td>Маша Badda Boo</td>
+    </tr>
+    <tr>
+      <th>2682</th>
+      <td>0.605275</td>
+      <td>Bondage Fairies</td>
+    </tr>
+    <tr>
+      <th>5018</th>
+      <td>0.601247</td>
+      <td>Delux</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>These results are interesting but it seems our system could be improved upon.</p>
+</div>
+<div class="section" id="model-initialisation">
+<h3>Model initialisation<a class="headerlink" href="#model-initialisation" title="Permalink to this headline">¶</a></h3>
+<p>It seems the initialisation parameters may play a factor in the results of our system as artists with few ratings may have had their embeddings initialised with a high norm. We use regularisation to combat this by adjusting the value of <code class="docutils literal notranslate"><span class="pre">init_stdev</span></code> (previously at 0.5 now changed to 0.05)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution</span>
+<span class="n">model_lowinit</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">(</span><span class="n">user_artists_norm</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">init_stddev</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">model_lowinit</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">num_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
+<span class="n">artist_neighbors</span><span class="p">(</span><span class="n">model_lowinit</span><span class="p">,</span> <span class="s2">&quot;Johnny Cash&quot;</span><span class="p">,</span> <span class="n">DOT</span><span class="p">)</span>
+<span class="n">artist_neighbors</span><span class="p">(</span><span class="n">model_lowinit</span><span class="p">,</span> <span class="s2">&quot;Johnny Cash&quot;</span><span class="p">,</span> <span class="n">COSINE</span><span class="p">)</span>
+<span class="c1">#movie_embedding_norm([model, model_lowinit])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error=0.000295, test_error=0.000384
+ iteration 10: train_error=0.000294, test_error=0.000384
+ iteration 20: train_error=0.000294, test_error=0.000384
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 30: train_error=0.000294, test_error=0.000384
+ iteration 40: train_error=0.000293, test_error=0.000383
+ iteration 50: train_error=0.000293, test_error=0.000383
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 60: train_error=0.000292, test_error=0.000383
+ iteration 70: train_error=0.000292, test_error=0.000383
+ iteration 80: train_error=0.000291, test_error=0.000382
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 90: train_error=0.000291, test_error=0.000382
+ iteration 100: train_error=0.000290, test_error=0.000382
+ iteration 110: train_error=0.000290, test_error=0.000381
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 120: train_error=0.000289, test_error=0.000381
+ iteration 130: train_error=0.000289, test_error=0.000381
+ iteration 140: train_error=0.000288, test_error=0.000381
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 150: train_error=0.000288, test_error=0.000380
+ iteration 160: train_error=0.000287, test_error=0.000380
+ iteration 170: train_error=0.000287, test_error=0.000380
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 180: train_error=0.000287, test_error=0.000380
+ iteration 190: train_error=0.000286, test_error=0.000379
+ iteration 200: train_error=0.000286, test_error=0.000379
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 210: train_error=0.000285, test_error=0.000379
+ iteration 220: train_error=0.000285, test_error=0.000379
+ iteration 230: train_error=0.000284, test_error=0.000379
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 240: train_error=0.000284, test_error=0.000378
+ iteration 250: train_error=0.000283, test_error=0.000378
+ iteration 260: train_error=0.000283, test_error=0.000378
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 270: train_error=0.000283, test_error=0.000378
+ iteration 280: train_error=0.000282, test_error=0.000377
+ iteration 290: train_error=0.000282, test_error=0.000377
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 300: train_error=0.000281, test_error=0.000377
+ iteration 310: train_error=0.000281, test_error=0.000377
+ iteration 320: train_error=0.000280, test_error=0.000376
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 330: train_error=0.000280, test_error=0.000376
+ iteration 340: train_error=0.000280, test_error=0.000376
+ iteration 350: train_error=0.000279, test_error=0.000376
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 360: train_error=0.000279, test_error=0.000375
+ iteration 370: train_error=0.000278, test_error=0.000375
+ iteration 380: train_error=0.000278, test_error=0.000375
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 390: train_error=0.000277, test_error=0.000375
+ iteration 400: train_error=0.000277, test_error=0.000375
+ iteration 410: train_error=0.000277, test_error=0.000374
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 420: train_error=0.000276, test_error=0.000374
+ iteration 430: train_error=0.000276, test_error=0.000374
+ iteration 440: train_error=0.000275, test_error=0.000374
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 450: train_error=0.000275, test_error=0.000373
+ iteration 460: train_error=0.000275, test_error=0.000373
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 470: train_error=0.000274, test_error=0.000373
+ iteration 480: train_error=0.000274, test_error=0.000373
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 490: train_error=0.000273, test_error=0.000373
+ iteration 500: train_error=0.000273, test_error=0.000372
+ iteration 510: train_error=0.000273, test_error=0.000372
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 520: train_error=0.000272, test_error=0.000372
+ iteration 530: train_error=0.000272, test_error=0.000372
+ iteration 540: train_error=0.000271, test_error=0.000372
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 550: train_error=0.000271, test_error=0.000371
+ iteration 560: train_error=0.000271, test_error=0.000371
+ iteration 570: train_error=0.000270, test_error=0.000371
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 580: train_error=0.000270, test_error=0.000371
+ iteration 590: train_error=0.000270, test_error=0.000370
+ iteration 600: train_error=0.000269, test_error=0.000370
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 610: train_error=0.000269, test_error=0.000370
+ iteration 620: train_error=0.000268, test_error=0.000370
+ iteration 630: train_error=0.000268, test_error=0.000370
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 640: train_error=0.000268, test_error=0.000369
+ iteration 650: train_error=0.000267, test_error=0.000369
+ iteration 660: train_error=0.000267, test_error=0.000369
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 670: train_error=0.000266, test_error=0.000369
+ iteration 680: train_error=0.000266, test_error=0.000369
+ iteration 690: train_error=0.000266, test_error=0.000368
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 700: train_error=0.000265, test_error=0.000368
+ iteration 710: train_error=0.000265, test_error=0.000368
+ iteration 720: train_error=0.000265, test_error=0.000368
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 730: train_error=0.000264, test_error=0.000368
+ iteration 740: train_error=0.000264, test_error=0.000367
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 750: train_error=0.000264, test_error=0.000367
+ iteration 760: train_error=0.000263, test_error=0.000367
+ iteration 770: train_error=0.000263, test_error=0.000367
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error=0.000262, test_error=0.000367
+ iteration 790: train_error=0.000262, test_error=0.000366
+ iteration 800: train_error=0.000262, test_error=0.000366
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 810: train_error=0.000261, test_error=0.000366
+ iteration 820: train_error=0.000261, test_error=0.000366
+ iteration 830: train_error=0.000261, test_error=0.000366
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error=0.000260, test_error=0.000366
+ iteration 850: train_error=0.000260, test_error=0.000365
+ iteration 860: train_error=0.000260, test_error=0.000365
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 870: train_error=0.000259, test_error=0.000365
+ iteration 880: train_error=0.000259, test_error=0.000365
+ iteration 890: train_error=0.000259, test_error=0.000365
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error=0.000258, test_error=0.000364
+ iteration 910: train_error=0.000258, test_error=0.000364
+ iteration 920: train_error=0.000258, test_error=0.000364
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 930: train_error=0.000257, test_error=0.000364
+ iteration 940: train_error=0.000257, test_error=0.000364
+ iteration 950: train_error=0.000257, test_error=0.000364
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error=0.000256, test_error=0.000363
+ iteration 970: train_error=0.000256, test_error=0.000363
+ iteration 980: train_error=0.000256, test_error=0.000363
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 990: train_error=0.000255, test_error=0.000363
+ iteration 1000: train_error=0.000255, test_error=0.000363Nearest neighbors of : Johnny Cash.
+[Found more than one matching artist. Other candidates: Johnny Cash &amp; Willie Nelson]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dot score</th>
+      <th>names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>712</th>
+      <td>0.070318</td>
+      <td>Johnny Cash</td>
+    </tr>
+    <tr>
+      <th>2708</th>
+      <td>0.054249</td>
+      <td>Gidropony</td>
+    </tr>
+    <tr>
+      <th>7154</th>
+      <td>0.051584</td>
+      <td>Jack White &amp; Alicia Keys</td>
+    </tr>
+    <tr>
+      <th>13462</th>
+      <td>0.049577</td>
+      <td>Siria</td>
+    </tr>
+    <tr>
+      <th>16133</th>
+      <td>0.049458</td>
+      <td>Benjamin Wetherill</td>
+    </tr>
+    <tr>
+      <th>4091</th>
+      <td>0.048504</td>
+      <td>LeCrae</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nearest neighbors of : Johnny Cash.
+[Found more than one matching artist. Other candidates: Johnny Cash &amp; Willie Nelson]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cosine score</th>
+      <th>names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>712</th>
+      <td>1.000000</td>
+      <td>Johnny Cash</td>
+    </tr>
+    <tr>
+      <th>2708</th>
+      <td>0.655261</td>
+      <td>Gidropony</td>
+    </tr>
+    <tr>
+      <th>1007</th>
+      <td>0.619879</td>
+      <td>Novaspace</td>
+    </tr>
+    <tr>
+      <th>16133</th>
+      <td>0.604852</td>
+      <td>Benjamin Wetherill</td>
+    </tr>
+    <tr>
+      <th>13462</th>
+      <td>0.601102</td>
+      <td>Siria</td>
+    </tr>
+    <tr>
+      <th>5486</th>
+      <td>0.591738</td>
+      <td>Emigrate</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="_images/Recommender_System_39_38.png" src="_images/Recommender_System_39_38.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="regularization-in-matrix-factorization">
+<h2>4) Regularization In Matrix Factorization<a class="headerlink" href="#regularization-in-matrix-factorization" title="Permalink to this headline">¶</a></h2>
+<p>In the code above, loss was defined as the mean squared error on the observed part of the rating matrix.  This can often cause issues when the model does not learn how to place the embeddings of irrelevant artists. This is called <em>folding</em>.</p>
+<p>We add some regularization terms to deal with this problem:</p>
+<ul class="simple">
+<li><p>Regularization of the model parameters. This is a common regularization term on the embedding matrices, given by
+$<span class="math notranslate nohighlight">\(
+r(U, V) =  \frac{1}{N} \sum_i \|U_i\|^2 + \frac{1}{M}\sum_j \|V_j\|^2
+\)</span>$</p></li>
+<li><p>A global prior that pushes the prediction of any pair towards zero, called the <em>gravity</em> term. This is given by
+$<span class="math notranslate nohighlight">\(
+g(U, V) = \frac{1}{MN} \sum_{i = 1}^N \sum_{j = 1}^M \langle U_i, V_j \rangle^2
+\)</span>$</p></li>
+</ul>
+<p>Total loss can now be calculated as:
+$<span class="math notranslate nohighlight">\(
+\frac{1}{|\Omega|}\sum_{(i, j) \in \Omega} (A_{ij} - \langle U_i, V_j\rangle)^2 + \lambda _r r(U, V) + \lambda_g g(U, V)
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gravity</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+  <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="o">*</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">transpose_a</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">transpose_a</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">build_regularized_model</span><span class="p">(</span>
+    <span class="n">ratings</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">regularization_coeff</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">gravity_coeff</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span>
+    <span class="n">init_stddev</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+  <span class="c1"># Split the ratings DataFrame into train and test.</span>
+  <span class="n">train_ratings</span><span class="p">,</span> <span class="n">test_ratings</span> <span class="o">=</span> <span class="n">split_dataframe</span><span class="p">(</span><span class="n">ratings</span><span class="p">)</span>
+  <span class="c1"># SparseTensor representation of the train and test datasets.</span>
+  <span class="n">A_train</span> <span class="o">=</span> <span class="n">build_rating_sparse_tensor</span><span class="p">(</span><span class="n">train_ratings</span><span class="p">)</span>
+  <span class="n">A_test</span> <span class="o">=</span> <span class="n">build_rating_sparse_tensor</span><span class="p">(</span><span class="n">test_ratings</span><span class="p">)</span>
+  <span class="n">U</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">A_train</span><span class="o">.</span><span class="n">dense_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">embedding_dim</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="n">init_stddev</span><span class="p">))</span>
+  <span class="n">V</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">A_train</span><span class="o">.</span><span class="n">dense_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">embedding_dim</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="n">init_stddev</span><span class="p">))</span>
+
+  <span class="n">error_train</span> <span class="o">=</span> <span class="n">sparse_mean_square_error</span><span class="p">(</span><span class="n">A_train</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+  <span class="n">error_test</span> <span class="o">=</span> <span class="n">sparse_mean_square_error</span><span class="p">(</span><span class="n">A_test</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+  <span class="n">gravity_loss</span> <span class="o">=</span> <span class="n">gravity_coeff</span> <span class="o">*</span> <span class="n">gravity</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+  <span class="n">regularization_loss</span> <span class="o">=</span> <span class="n">regularization_coeff</span> <span class="o">*</span> <span class="p">(</span>
+      <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">U</span><span class="o">*</span><span class="n">U</span><span class="p">)</span><span class="o">/</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">V</span><span class="o">*</span><span class="n">V</span><span class="p">)</span><span class="o">/</span><span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+  <span class="n">total_loss</span> <span class="o">=</span> <span class="n">error_train</span> <span class="o">+</span> <span class="n">regularization_loss</span> <span class="o">+</span> <span class="n">gravity_loss</span>
+  <span class="n">losses</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;train_error_observed&#39;</span><span class="p">:</span> <span class="n">error_train</span><span class="p">,</span>
+      <span class="s1">&#39;test_error_observed&#39;</span><span class="p">:</span> <span class="n">error_test</span><span class="p">,</span>
+  <span class="p">}</span>
+  <span class="n">loss_components</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;observed_loss&#39;</span><span class="p">:</span> <span class="n">error_train</span><span class="p">,</span>
+      <span class="s1">&#39;regularization_loss&#39;</span><span class="p">:</span> <span class="n">regularization_loss</span><span class="p">,</span>
+      <span class="s1">&#39;gravity_loss&#39;</span><span class="p">:</span> <span class="n">gravity_loss</span><span class="p">,</span>
+  <span class="p">}</span>
+  <span class="n">embeddings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="n">U</span><span class="p">,</span> <span class="s2">&quot;artistID&quot;</span><span class="p">:</span> <span class="n">V</span><span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">CFModel</span><span class="p">(</span><span class="n">embeddings</span><span class="p">,</span> <span class="n">total_loss</span><span class="p">,</span> <span class="p">[</span><span class="n">losses</span><span class="p">,</span> <span class="n">loss_components</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We build the regularised model and observe the results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reg_model</span> <span class="o">=</span> <span class="n">build_regularized_model</span><span class="p">(</span>
+    <span class="n">user_artists_norm</span><span class="p">,</span> <span class="n">regularization_coeff</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">gravity_coeff</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span>
+    <span class="n">init_stddev</span><span class="o">=</span><span class="mf">.05</span><span class="p">)</span>
+<span class="n">reg_model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">num_iterations</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">20.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error_observed=0.000341, test_error_observed=0.000313, observed_loss=0.000341, regularization_loss=0.017579, gravity_loss=0.000221
+ iteration 10: train_error_observed=0.000329, test_error_observed=0.000302, observed_loss=0.000329, regularization_loss=0.017153, gravity_loss=0.000210
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 20: train_error_observed=0.000318, test_error_observed=0.000292, observed_loss=0.000318, regularization_loss=0.016745, gravity_loss=0.000200
+ iteration 30: train_error_observed=0.000308, test_error_observed=0.000282, observed_loss=0.000308, regularization_loss=0.016352, gravity_loss=0.000190
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 40: train_error_observed=0.000298, test_error_observed=0.000273, observed_loss=0.000298, regularization_loss=0.015976, gravity_loss=0.000181
+ iteration 50: train_error_observed=0.000289, test_error_observed=0.000264, observed_loss=0.000289, regularization_loss=0.015614, gravity_loss=0.000173
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 60: train_error_observed=0.000280, test_error_observed=0.000256, observed_loss=0.000280, regularization_loss=0.015267, gravity_loss=0.000164
+ iteration 70: train_error_observed=0.000272, test_error_observed=0.000248, observed_loss=0.000272, regularization_loss=0.014933, gravity_loss=0.000156
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 80: train_error_observed=0.000264, test_error_observed=0.000241, observed_loss=0.000264, regularization_loss=0.014612, gravity_loss=0.000149
+ iteration 90: train_error_observed=0.000257, test_error_observed=0.000233, observed_loss=0.000257, regularization_loss=0.014304, gravity_loss=0.000142
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 100: train_error_observed=0.000249, test_error_observed=0.000227, observed_loss=0.000249, regularization_loss=0.014008, gravity_loss=0.000135
+ iteration 110: train_error_observed=0.000243, test_error_observed=0.000220, observed_loss=0.000243, regularization_loss=0.013723, gravity_loss=0.000129
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 120: train_error_observed=0.000236, test_error_observed=0.000214, observed_loss=0.000236, regularization_loss=0.013450, gravity_loss=0.000122
+ iteration 130: train_error_observed=0.000230, test_error_observed=0.000208, observed_loss=0.000230, regularization_loss=0.013186, gravity_loss=0.000117
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 140: train_error_observed=0.000225, test_error_observed=0.000203, observed_loss=0.000225, regularization_loss=0.012933, gravity_loss=0.000111
+ iteration 150: train_error_observed=0.000219, test_error_observed=0.000198, observed_loss=0.000219, regularization_loss=0.012689, gravity_loss=0.000106
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 160: train_error_observed=0.000214, test_error_observed=0.000193, observed_loss=0.000214, regularization_loss=0.012455, gravity_loss=0.000101
+ iteration 170: train_error_observed=0.000209, test_error_observed=0.000188, observed_loss=0.000209, regularization_loss=0.012229, gravity_loss=0.000096
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 180: train_error_observed=0.000205, test_error_observed=0.000183, observed_loss=0.000205, regularization_loss=0.012012, gravity_loss=0.000091
+ iteration 190: train_error_observed=0.000200, test_error_observed=0.000179, observed_loss=0.000200, regularization_loss=0.011803, gravity_loss=0.000087
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 200: train_error_observed=0.000196, test_error_observed=0.000175, observed_loss=0.000196, regularization_loss=0.011601, gravity_loss=0.000083
+ iteration 210: train_error_observed=0.000192, test_error_observed=0.000171, observed_loss=0.000192, regularization_loss=0.011407, gravity_loss=0.000079
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 220: train_error_observed=0.000188, test_error_observed=0.000168, observed_loss=0.000188, regularization_loss=0.011220, gravity_loss=0.000075
+ iteration 230: train_error_observed=0.000185, test_error_observed=0.000164, observed_loss=0.000185, regularization_loss=0.011039, gravity_loss=0.000072
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 240: train_error_observed=0.000181, test_error_observed=0.000161, observed_loss=0.000181, regularization_loss=0.010865, gravity_loss=0.000068
+ iteration 250: train_error_observed=0.000178, test_error_observed=0.000158, observed_loss=0.000178, regularization_loss=0.010697, gravity_loss=0.000065
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 260: train_error_observed=0.000175, test_error_observed=0.000155, observed_loss=0.000175, regularization_loss=0.010536, gravity_loss=0.000062
+ iteration 270: train_error_observed=0.000172, test_error_observed=0.000152, observed_loss=0.000172, regularization_loss=0.010379, gravity_loss=0.000059
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 280: train_error_observed=0.000169, test_error_observed=0.000149, observed_loss=0.000169, regularization_loss=0.010229, gravity_loss=0.000056
+ iteration 290: train_error_observed=0.000167, test_error_observed=0.000146, observed_loss=0.000167, regularization_loss=0.010083, gravity_loss=0.000053
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 300: train_error_observed=0.000164, test_error_observed=0.000144, observed_loss=0.000164, regularization_loss=0.009942, gravity_loss=0.000051
+ iteration 310: train_error_observed=0.000162, test_error_observed=0.000142, observed_loss=0.000162, regularization_loss=0.009806, gravity_loss=0.000048
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 320: train_error_observed=0.000160, test_error_observed=0.000139, observed_loss=0.000160, regularization_loss=0.009675, gravity_loss=0.000046
+ iteration 330: train_error_observed=0.000158, test_error_observed=0.000137, observed_loss=0.000158, regularization_loss=0.009548, gravity_loss=0.000044
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 340: train_error_observed=0.000156, test_error_observed=0.000135, observed_loss=0.000156, regularization_loss=0.009425, gravity_loss=0.000042
+ iteration 350: train_error_observed=0.000154, test_error_observed=0.000133, observed_loss=0.000154, regularization_loss=0.009307, gravity_loss=0.000040
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 360: train_error_observed=0.000152, test_error_observed=0.000132, observed_loss=0.000152, regularization_loss=0.009192, gravity_loss=0.000038
+ iteration 370: train_error_observed=0.000150, test_error_observed=0.000130, observed_loss=0.000150, regularization_loss=0.009081, gravity_loss=0.000036
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 380: train_error_observed=0.000148, test_error_observed=0.000128, observed_loss=0.000148, regularization_loss=0.008973, gravity_loss=0.000034
+ iteration 390: train_error_observed=0.000147, test_error_observed=0.000127, observed_loss=0.000147, regularization_loss=0.008869, gravity_loss=0.000033
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 400: train_error_observed=0.000145, test_error_observed=0.000125, observed_loss=0.000145, regularization_loss=0.008767, gravity_loss=0.000031
+ iteration 410: train_error_observed=0.000144, test_error_observed=0.000124, observed_loss=0.000144, regularization_loss=0.008669, gravity_loss=0.000030
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 420: train_error_observed=0.000143, test_error_observed=0.000122, observed_loss=0.000143, regularization_loss=0.008574, gravity_loss=0.000028
+ iteration 430: train_error_observed=0.000141, test_error_observed=0.000121, observed_loss=0.000141, regularization_loss=0.008482, gravity_loss=0.000027
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 440: train_error_observed=0.000140, test_error_observed=0.000120, observed_loss=0.000140, regularization_loss=0.008393, gravity_loss=0.000026
+ iteration 450: train_error_observed=0.000139, test_error_observed=0.000119, observed_loss=0.000139, regularization_loss=0.008306, gravity_loss=0.000025
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 460: train_error_observed=0.000138, test_error_observed=0.000118, observed_loss=0.000138, regularization_loss=0.008221, gravity_loss=0.000023
+ iteration 470: train_error_observed=0.000137, test_error_observed=0.000116, observed_loss=0.000137, regularization_loss=0.008140, gravity_loss=0.000022
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 480: train_error_observed=0.000136, test_error_observed=0.000115, observed_loss=0.000136, regularization_loss=0.008060, gravity_loss=0.000021
+ iteration 490: train_error_observed=0.000135, test_error_observed=0.000114, observed_loss=0.000135, regularization_loss=0.007982, gravity_loss=0.000020
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 500: train_error_observed=0.000134, test_error_observed=0.000114, observed_loss=0.000134, regularization_loss=0.007907, gravity_loss=0.000019
+ iteration 510: train_error_observed=0.000133, test_error_observed=0.000113, observed_loss=0.000133, regularization_loss=0.007834, gravity_loss=0.000018
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 520: train_error_observed=0.000132, test_error_observed=0.000112, observed_loss=0.000132, regularization_loss=0.007763, gravity_loss=0.000017
+ iteration 530: train_error_observed=0.000132, test_error_observed=0.000111, observed_loss=0.000132, regularization_loss=0.007693, gravity_loss=0.000017
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 540: train_error_observed=0.000131, test_error_observed=0.000110, observed_loss=0.000131, regularization_loss=0.007625, gravity_loss=0.000016
+ iteration 550: train_error_observed=0.000130, test_error_observed=0.000110, observed_loss=0.000130, regularization_loss=0.007560, gravity_loss=0.000015
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 560: train_error_observed=0.000129, test_error_observed=0.000109, observed_loss=0.000129, regularization_loss=0.007495, gravity_loss=0.000014
+ iteration 570: train_error_observed=0.000129, test_error_observed=0.000108, observed_loss=0.000129, regularization_loss=0.007433, gravity_loss=0.000014
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 580: train_error_observed=0.000128, test_error_observed=0.000108, observed_loss=0.000128, regularization_loss=0.007371, gravity_loss=0.000013
+ iteration 590: train_error_observed=0.000128, test_error_observed=0.000107, observed_loss=0.000128, regularization_loss=0.007312, gravity_loss=0.000012
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 600: train_error_observed=0.000127, test_error_observed=0.000106, observed_loss=0.000127, regularization_loss=0.007253, gravity_loss=0.000012
+ iteration 610: train_error_observed=0.000127, test_error_observed=0.000106, observed_loss=0.000127, regularization_loss=0.007197, gravity_loss=0.000011
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 620: train_error_observed=0.000126, test_error_observed=0.000105, observed_loss=0.000126, regularization_loss=0.007141, gravity_loss=0.000011
+ iteration 630: train_error_observed=0.000126, test_error_observed=0.000105, observed_loss=0.000126, regularization_loss=0.007086, gravity_loss=0.000010
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 640: train_error_observed=0.000125, test_error_observed=0.000104, observed_loss=0.000125, regularization_loss=0.007033, gravity_loss=0.000010
+ iteration 650: train_error_observed=0.000125, test_error_observed=0.000104, observed_loss=0.000125, regularization_loss=0.006981, gravity_loss=0.000009
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 660: train_error_observed=0.000124, test_error_observed=0.000104, observed_loss=0.000124, regularization_loss=0.006930, gravity_loss=0.000009
+ iteration 670: train_error_observed=0.000124, test_error_observed=0.000103, observed_loss=0.000124, regularization_loss=0.006880, gravity_loss=0.000008
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 680: train_error_observed=0.000124, test_error_observed=0.000103, observed_loss=0.000124, regularization_loss=0.006832, gravity_loss=0.000008
+ iteration 690: train_error_observed=0.000123, test_error_observed=0.000102, observed_loss=0.000123, regularization_loss=0.006784, gravity_loss=0.000008
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 700: train_error_observed=0.000123, test_error_observed=0.000102, observed_loss=0.000123, regularization_loss=0.006737, gravity_loss=0.000007
+ iteration 710: train_error_observed=0.000123, test_error_observed=0.000102, observed_loss=0.000123, regularization_loss=0.006691, gravity_loss=0.000007
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 720: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006646, gravity_loss=0.000007
+ iteration 730: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006601, gravity_loss=0.000006
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 740: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006558, gravity_loss=0.000006
+ iteration 750: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006515, gravity_loss=0.000006
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 760: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006473, gravity_loss=0.000005
+ iteration 770: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006432, gravity_loss=0.000005
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006391, gravity_loss=0.000005
+ iteration 790: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006352, gravity_loss=0.000005
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 800: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006312, gravity_loss=0.000005
+ iteration 810: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006274, gravity_loss=0.000004
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 820: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006236, gravity_loss=0.000004
+ iteration 830: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006198, gravity_loss=0.000004
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006162, gravity_loss=0.000004
+ iteration 850: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006125, gravity_loss=0.000004
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 860: train_error_observed=0.000120, test_error_observed=0.000098, observed_loss=0.000120, regularization_loss=0.006090, gravity_loss=0.000003
+ iteration 870: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.006054, gravity_loss=0.000003
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 880: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.006020, gravity_loss=0.000003
+ iteration 890: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005985, gravity_loss=0.000003
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005952, gravity_loss=0.000003
+ iteration 910: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005918, gravity_loss=0.000003
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 920: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005885, gravity_loss=0.000003
+ iteration 930: train_error_observed=0.000119, test_error_observed=0.000097, observed_loss=0.000119, regularization_loss=0.005853, gravity_loss=0.000002
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 940: train_error_observed=0.000119, test_error_observed=0.000097, observed_loss=0.000119, regularization_loss=0.005820, gravity_loss=0.000002
+ iteration 950: train_error_observed=0.000119, test_error_observed=0.000097, observed_loss=0.000119, regularization_loss=0.005789, gravity_loss=0.000002
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005757, gravity_loss=0.000002
+ iteration 970: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005726, gravity_loss=0.000002
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 980: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005696, gravity_loss=0.000002
+ iteration 990: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005665, gravity_loss=0.000002
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1000: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005635, gravity_loss=0.000002
+ iteration 1010: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005606, gravity_loss=0.000002
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1020: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005576, gravity_loss=0.000002
+ iteration 1030: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005547, gravity_loss=0.000002
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1040: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005519, gravity_loss=0.000001
+ iteration 1050: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005490, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1060: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005462, gravity_loss=0.000001
+ iteration 1070: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005434, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1080: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005406, gravity_loss=0.000001
+ iteration 1090: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005379, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1100: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005352, gravity_loss=0.000001
+ iteration 1110: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005325, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1120: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005298, gravity_loss=0.000001
+ iteration 1130: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005272, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1140: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005246, gravity_loss=0.000001
+ iteration 1150: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005220, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1160: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005194, gravity_loss=0.000001
+ iteration 1170: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005168, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1180: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005143, gravity_loss=0.000001
+ iteration 1190: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005118, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1200: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005093, gravity_loss=0.000001
+ iteration 1210: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005068, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1220: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005043, gravity_loss=0.000001
+ iteration 1230: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005019, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1240: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004995, gravity_loss=0.000001
+ iteration 1250: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004971, gravity_loss=0.000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1260: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004947, gravity_loss=0.000001
+ iteration 1270: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004923, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1280: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004899, gravity_loss=0.000000
+ iteration 1290: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004876, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1300: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004853, gravity_loss=0.000000
+ iteration 1310: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004830, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1320: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004807, gravity_loss=0.000000
+ iteration 1330: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004784, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1340: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004761, gravity_loss=0.000000
+ iteration 1350: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004739, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1360: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004716, gravity_loss=0.000000
+ iteration 1370: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004694, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1380: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004672, gravity_loss=0.000000
+ iteration 1390: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004650, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1400: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004628, gravity_loss=0.000000
+ iteration 1410: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004607, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1420: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004585, gravity_loss=0.000000
+ iteration 1430: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004564, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1440: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004543, gravity_loss=0.000000
+ iteration 1450: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004521, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1460: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004500, gravity_loss=0.000000
+ iteration 1470: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004479, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1480: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004459, gravity_loss=0.000000
+ iteration 1490: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004438, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1500: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004417, gravity_loss=0.000000
+ iteration 1510: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004397, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1520: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004377, gravity_loss=0.000000
+ iteration 1530: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004356, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1540: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004336, gravity_loss=0.000000
+ iteration 1550: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004316, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1560: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004296, gravity_loss=0.000000
+ iteration 1570: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004276, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1580: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004257, gravity_loss=0.000000
+ iteration 1590: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004237, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1600: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004218, gravity_loss=0.000000
+ iteration 1610: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004198, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1620: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004179, gravity_loss=0.000000
+ iteration 1630: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004160, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1640: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004141, gravity_loss=0.000000
+ iteration 1650: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004122, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1660: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004103, gravity_loss=0.000000
+ iteration 1670: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004084, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1680: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004065, gravity_loss=0.000000
+ iteration 1690: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004047, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1700: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004028, gravity_loss=0.000000
+ iteration 1710: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004010, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1720: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003991, gravity_loss=0.000000
+ iteration 1730: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003973, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1740: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003955, gravity_loss=0.000000
+ iteration 1750: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003937, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1760: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003919, gravity_loss=0.000000
+ iteration 1770: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003901, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1780: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003883, gravity_loss=0.000000
+ iteration 1790: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003866, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1800: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003848, gravity_loss=0.000000
+ iteration 1810: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003830, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1820: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003813, gravity_loss=0.000000
+ iteration 1830: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003796, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1840: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003778, gravity_loss=0.000000
+ iteration 1850: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003761, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1860: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003744, gravity_loss=0.000000
+ iteration 1870: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003727, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1880: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003710, gravity_loss=0.000000
+ iteration 1890: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003693, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1900: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003676, gravity_loss=0.000000
+ iteration 1910: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003660, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1920: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003643, gravity_loss=0.000000
+ iteration 1930: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003626, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1940: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003610, gravity_loss=0.000000
+ iteration 1950: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003593, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1960: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003577, gravity_loss=0.000000
+ iteration 1970: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003561, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1980: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003545, gravity_loss=0.000000
+ iteration 1990: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003529, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 2000: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003513, gravity_loss=0.000000
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;train_error_observed&#39;: 0.000117582786,
+  &#39;test_error_observed&#39;: 9.5125186e-05},
+ {&#39;observed_loss&#39;: 0.000117582786,
+  &#39;regularization_loss&#39;: 0.0035125446,
+  &#39;gravity_loss&#39;: 2.7568014e-08}]
+</pre></div>
+</div>
+<img alt="_images/Recommender_System_43_102.png" src="_images/Recommender_System_43_102.png" />
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Testing<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artist_neighbors</span><span class="p">(</span><span class="n">model_lowinit</span><span class="p">,</span> <span class="s2">&quot;Johnny Cash&quot;</span><span class="p">,</span> <span class="n">DOT</span><span class="p">)</span>
+<span class="n">artist_neighbors</span><span class="p">(</span><span class="n">model_lowinit</span><span class="p">,</span> <span class="s2">&quot;Johnny Cash&quot;</span><span class="p">,</span> <span class="n">COSINE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nearest neighbors of : Johnny Cash.
+[Found more than one matching artist. Other candidates: Johnny Cash &amp; Willie Nelson]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dot score</th>
+      <th>names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>712</th>
+      <td>0.070318</td>
+      <td>Johnny Cash</td>
+    </tr>
+    <tr>
+      <th>2708</th>
+      <td>0.054249</td>
+      <td>Gidropony</td>
+    </tr>
+    <tr>
+      <th>7154</th>
+      <td>0.051584</td>
+      <td>Jack White &amp; Alicia Keys</td>
+    </tr>
+    <tr>
+      <th>13462</th>
+      <td>0.049577</td>
+      <td>Siria</td>
+    </tr>
+    <tr>
+      <th>16133</th>
+      <td>0.049458</td>
+      <td>Benjamin Wetherill</td>
+    </tr>
+    <tr>
+      <th>4091</th>
+      <td>0.048504</td>
+      <td>LeCrae</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nearest neighbors of : Johnny Cash.
+[Found more than one matching artist. Other candidates: Johnny Cash &amp; Willie Nelson]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cosine score</th>
+      <th>names</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>712</th>
+      <td>1.000000</td>
+      <td>Johnny Cash</td>
+    </tr>
+    <tr>
+      <th>2708</th>
+      <td>0.655261</td>
+      <td>Gidropony</td>
+    </tr>
+    <tr>
+      <th>1007</th>
+      <td>0.619879</td>
+      <td>Novaspace</td>
+    </tr>
+    <tr>
+      <th>16133</th>
+      <td>0.604852</td>
+      <td>Benjamin Wetherill</td>
+    </tr>
+    <tr>
+      <th>13462</th>
+      <td>0.601102</td>
+      <td>Siria</td>
+    </tr>
+    <tr>
+      <th>5486</th>
+      <td>0.591738</td>
+      <td>Emigrate</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Our recommender system is fully functional and outputs artists based on similarity metrics to whatever artist the user enters. The system appears to have some issues as there are often useful recommendations alongside other, not so useful recommendations. The inner workings of the systems need some work before this would be deemed acceptable however as a starting point it is a useful recommender system to be further fine tuned.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="novel-lyrics-display">
+<h1>Novel Lyrics Display<a class="headerlink" href="#novel-lyrics-display" title="Permalink to this headline">¶</a></h1>
+<p>This section details the novel lyrics aspect of this system. A user can input a favourite artist and song and will be returned some classic lyrics from that artist on screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">lyricsgenius</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lyricsgenius in /Users/dockreg/anaconda3/lib/python3.7/site-packages (3.0.1)
+Requirement already satisfied: requests&gt;=2.20.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from lyricsgenius) (2.26.0)
+Requirement already satisfied: beautifulsoup4&gt;=4.6.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from lyricsgenius) (4.10.0)
+Requirement already satisfied: soupsieve&gt;1.2 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from beautifulsoup4&gt;=4.6.0-&gt;lyricsgenius) (2.2.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (2.0.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (1.26.6)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (3.2)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (2021.10.8)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Token has been removed below after successfully running the API call</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxxxxxxxxxxxx&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lyricsgenius</span> <span class="k">as</span> <span class="nn">lg</span>
+<span class="n">genius</span> <span class="o">=</span> <span class="n">lg</span><span class="o">.</span><span class="n">Genius</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song_title</span> <span class="o">=</span> <span class="s2">&quot;Walk the line&quot;</span>
+<span class="n">artist_name</span> <span class="o">=</span> <span class="s2">&quot;Johnny Cash&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song</span> <span class="o">=</span> <span class="n">genius</span><span class="o">.</span><span class="n">search_song</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">song_title</span><span class="p">,</span> <span class="n">artist</span><span class="o">=</span><span class="n">artist_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Searching for &quot;Walk the line&quot; by Johnny Cash...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lyrics</span> <span class="o">=</span> <span class="n">song</span><span class="o">.</span><span class="n">lyrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">=</span><span class="n">lyrics</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+    
+    <span class="c1"># uncomment for interactive notebook running</span>
+    <span class="c1">#time.sleep(2)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Verse 1]
+I keep a close watch on this heart of mine
+I keep my eyes wide open all the time
+I keep the ends out for the tie that binds
+Because you&#39;re mine, I walk the line
+
+[Verse 2]
+I find it very, very easy to be true
+I find myself alone when each day is through
+Yes, I&#39;ll admit that I&#39;m a fool for you
+Because you&#39;re mine, I walk the line
+
+[Verse 3]
+As sure as night is dark and day is light
+I keep you on my mind both day and night
+And happiness I&#39;ve known proves that it&#39;s right
+Because you&#39;re mine, I walk the line
+
+[Verse 4]
+You&#39;ve got a way to keep me on your side
+You give me cause for love that I can&#39;t hide
+For you, I know I&#39;d even try to turn the tide
+Because you&#39;re mine, I walk the line
+
+[Verse 1]
+I keep a close watch on this heart of mine
+I keep my eyes wide open all the time
+I keep the ends out for the tie that binds
+Because you&#39;re mine, I walk the line
+</pre></div>
+</div>
+</div>
+</div>
+<img src="https://www.billboard.com/wp-content/uploads/media/johnny-cash-bw-portrait-klm-billboard-1548.jpg" width=750 height=400 /></div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Data_Exploration.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Exploration</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By George Dockrell<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

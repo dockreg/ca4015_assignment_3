@@ -1,0 +1,15 @@
+jupyter-book
+matplotlib
+numpy
+tensorflow
+seaborn
+pandas
+collections
+sklearn
+IPython
+mpl_toolkits.mplot3d
+__future__
+os
+json
+time
+lyricsgenius

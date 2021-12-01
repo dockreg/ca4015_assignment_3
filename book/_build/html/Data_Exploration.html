@@ -1,0 +1,2345 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Exploration &#8212; CA4015 Music Recommender System</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Music Recommender System" href="Recommender_System.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">CA4015 Music Recommender System</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Recommender_System.html">
+   Music Recommender System
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Data_Exploration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/dockreg/ca4015_assignment_3"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/dockreg/ca4015_assignment_3/issues/new?title=Issue%20on%20page%20%2FData_Exploration.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dockreg/ca4015_assignment_3/master?urlpath=tree/docs/Data_Exploration.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Data Exploration
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-dependencies">
+     Install dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-data">
+     Import data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#artists">
+       Artists
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tags">
+       Tags
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#user-artists">
+       User Artists
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#user-friends">
+       User Friends
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#user-tagged-artists-timestamp">
+       User Tagged Artists Timestamp
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#user-tagged-artists">
+       User Tagged Artists
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-manipulation-and-visualisation">
+     Data Manipulation and Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#merge-data-visualisations">
+   Merge Data / Visualisations
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-exploration">
+<h1>Data Exploration<a class="headerlink" href="#data-exploration" title="Permalink to this headline">¶</a></h1>
+<p>We will explore the 6 files of the lastfm data set to further understand the data within and to investigate relationships between the users, artists and tags before we proceed with our recommender system.</p>
+<div class="section" id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">import</span> <span class="nn">sklearn.manifold</span>
+<span class="kn">import</span> <span class="nn">tensorflow.compat.v1</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">compat</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">disable_eager_execution</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="import-data">
+<h2>Import data<a class="headerlink" href="#import-data" title="Permalink to this headline">¶</a></h2>
+<p>Import data from our 6 separate files and do some preliminary analysis to better understand what information is contianed in this dataset.</p>
+<p>We have 6 files:</p>
+<ul class="simple">
+<li><p>artists</p></li>
+<li><p>tags</p></li>
+<li><p>user_artists</p></li>
+<li><p>user_friends</p></li>
+<li><p>user_taggedartists-timestamp</p></li>
+<li><p>user_taggedartists</p></li>
+</ul>
+<div class="section" id="artists">
+<h3>Artists<a class="headerlink" href="#artists" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load artists</span>
+<span class="n">artists_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;pictureURL&#39;</span><span class="p">]</span>
+<span class="n">artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/artists.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">artists_cols</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">artists</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>url</th>
+      <th>pictureURL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>MALICE MIZER</td>
+      <td>http://www.last.fm/music/MALICE+MIZER</td>
+      <td>http://userserve-ak.last.fm/serve/252/10808.jpg</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Diary of Dreams</td>
+      <td>http://www.last.fm/music/Diary+of+Dreams</td>
+      <td>http://userserve-ak.last.fm/serve/252/3052066.jpg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Carpathian Forest</td>
+      <td>http://www.last.fm/music/Carpathian+Forest</td>
+      <td>http://userserve-ak.last.fm/serve/252/40222717...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Moi dix Mois</td>
+      <td>http://www.last.fm/music/Moi+dix+Mois</td>
+      <td>http://userserve-ak.last.fm/serve/252/54697835...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Bella Morte</td>
+      <td>http://www.last.fm/music/Bella+Morte</td>
+      <td>http://userserve-ak.last.fm/serve/252/14789013...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 17632 entries, 0 to 17631
+Data columns (total 4 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   id          17632 non-null  int64 
+ 1   name        17632 non-null  object
+ 2   url         17632 non-null  object
+ 3   pictureURL  17188 non-null  object
+dtypes: int64(1), object(3)
+memory usage: 551.1+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>The picture URL contains some null values but we will not need this column for our analysis and so we can drop this column and the url column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;pictureURL&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">artists</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>MALICE MIZER</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Diary of Dreams</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Carpathian Forest</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Moi dix Mois</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Bella Morte</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This dataframe contains one row for each of the 17,632 artist in this data set with their corresponding id</p>
+</div>
+<div class="section" id="tags">
+<h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load tags</span>
+<span class="n">tags_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tagID&#39;</span><span class="p">,</span> <span class="s1">&#39;tagValue&#39;</span><span class="p">]</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/tags.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin-1&#39;</span><span class="p">)</span>
+<span class="n">tags</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tagID</th>
+      <th>tagValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>metal</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>alternative metal</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>goth rock</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>black metal</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>death metal</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 11946 entries, 0 to 11945
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype 
+---  ------    --------------  ----- 
+ 0   tagID     11946 non-null  int64 
+ 1   tagValue  11946 non-null  object
+dtypes: int64(1), object(1)
+memory usage: 186.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tagID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>11946.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>6242.315336</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3667.498057</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3036.250000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>6210.500000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>9460.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>12648.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags1</span> <span class="o">=</span> <span class="n">tags</span><span class="p">[</span><span class="n">tags</span><span class="p">[</span><span class="s1">&#39;tagValue&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;metal&#39;</span><span class="p">)]</span>
+<span class="n">tags1</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tagID  tagValue             
+1      metal                    1
+5999   french death metal       1
+6318   canadian metal           1
+6317   italian metal            1
+6311   us metal                 1
+                               ..
+3135   melodic heavy metal      1
+3133   extreme power metal      1
+2956   communism death metal    1
+2914   transmetal               1
+12634  angry metal              1
+Length: 306, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>This dataframe contains one row for each of the 11,946 seperate tags that can be applied to each artist. As we can see from above there can be a wide variety of different genres. There are 306 different tags that all contain the word metal. We will need to be minfuk of this when doing analysis.</p>
+</div>
+<div class="section" id="user-artists">
+<h3>User Artists<a class="headerlink" href="#user-artists" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load user-artists</span>
+<span class="n">user_artists_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="s1">&#39;artistID&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+<span class="n">user_artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_artists.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">user_artists</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>51</td>
+      <td>13883</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>52</td>
+      <td>11690</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>53</td>
+      <td>11351</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>54</td>
+      <td>10300</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>55</td>
+      <td>8983</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_artists</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>92834.000000</td>
+      <td>92834.000000</td>
+      <td>92834.00000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1037.010481</td>
+      <td>3331.123145</td>
+      <td>745.24393</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>610.870436</td>
+      <td>4383.590502</td>
+      <td>3751.32208</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.00000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>502.000000</td>
+      <td>436.000000</td>
+      <td>107.00000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1029.000000</td>
+      <td>1246.000000</td>
+      <td>260.00000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1568.000000</td>
+      <td>4350.000000</td>
+      <td>614.00000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2100.000000</td>
+      <td>18745.000000</td>
+      <td>352698.00000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_artists</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>userID  artistID  weight
+2       51        13883     1
+1390    964       147       1
+        863       687       1
+        859       196       1
+        709       201       1
+                           ..
+676     859       168       1
+        856       127       1
+        854       283       1
+        841       198       1
+2100    18730     263       1
+Length: 92834, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The user artists contains users, the artist they listen to, and the weight which is proportional to how much they have listened to the artist. The weight value goes from 1-352,698 with an average weight of 745. Users may have a weighting for multiple artists.</p>
+<p>(README.txt)
+92834 user-listened artist relations:
+avg. 49.067 artists most listened by each user
+avg. 5.265 users who listened each artist</p>
+</div>
+<div class="section" id="user-friends">
+<h3>User Friends<a class="headerlink" href="#user-friends" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load user-friends</span>
+<span class="n">user_friends_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="s1">&#39;friendID&#39;</span><span class="p">]</span>
+<span class="n">user_friends</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_friends.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">user_friends</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>friendID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>275</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>428</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>515</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>761</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>831</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_friends</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>friendID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>25434.000000</td>
+      <td>25434.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>992.161437</td>
+      <td>992.161437</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>603.959049</td>
+      <td>603.959049</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>441.000000</td>
+      <td>441.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>984.000000</td>
+      <td>984.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1514.000000</td>
+      <td>1514.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2100.000000</td>
+      <td>2100.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This dataframe contains: 12717 bi-directional user friend relations, i.e. 25434 (user_i, user_j) pairs
+avg. 13.443 friend relations per user (taken from README.txt with the data)</p>
+<p>We will explore this data to see if any clear patterns emerge and to see what the distribution of friendship is like in this data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_friends</span> <span class="o">=</span> <span class="n">user_friends</span><span class="p">[[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="s1">&#39;friendID&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;userID&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">top_friends</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;friendID&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">top_friends</span> <span class="o">=</span> <span class="n">top_friends</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">top_friends</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1394</th>
+      <td>1543</td>
+      <td>119</td>
+    </tr>
+    <tr>
+      <th>1164</th>
+      <td>1281</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>772</th>
+      <td>831</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>179</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>1359</th>
+      <td>1503</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1693</th>
+      <td>1874</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>535</th>
+      <td>573</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1214</th>
+      <td>1340</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>151</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1718</th>
+      <td>1904</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>1892 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Paired&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">top_friends</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">],</span> <span class="n">palette</span><span class="o">=</span><span class="n">r</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top Friends&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Count of friends&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_Exploration_28_0.png" src="_images/Data_Exploration_28_0.png" />
+</div>
+</div>
+<p>This boxplot gives us an idea of the relationships between friends. The majority of the users have &lt; 20 friends however there appear to be some outliers who have upwards of 40 and as many as 119 friends. These are very influential users within this dataset</p>
+</div>
+<div class="section" id="user-tagged-artists-timestamp">
+<h3>User Tagged Artists Timestamp<a class="headerlink" href="#user-tagged-artists-timestamp" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load user-tagged-artists-timestamps</span>
+<span class="n">user_tagged_artists_tstamp_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="s1">&#39;artistID&#39;</span><span class="p">,</span> <span class="s1">&#39;tagID&#39;</span><span class="p">,</span> <span class="s1">&#39;timestamp&#39;</span><span class="p">]</span>
+<span class="n">user_tagged_artists_tstamp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_taggedartists-timestamps.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">user_tagged_artists_tstamp</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>tagID</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>52</td>
+      <td>13</td>
+      <td>1238536800000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>52</td>
+      <td>15</td>
+      <td>1238536800000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>52</td>
+      <td>18</td>
+      <td>1238536800000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>52</td>
+      <td>21</td>
+      <td>1238536800000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>52</td>
+      <td>41</td>
+      <td>1238536800000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_tagged_artists_tstamp</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>tagID</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>186479.000000</td>
+      <td>186479.000000</td>
+      <td>186479.000000</td>
+      <td>1.864790e+05</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1035.600137</td>
+      <td>4375.845328</td>
+      <td>1439.582913</td>
+      <td>1.239204e+12</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>622.461272</td>
+      <td>4897.789595</td>
+      <td>2775.340279</td>
+      <td>4.299091e+10</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>-4.287204e+11</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>488.000000</td>
+      <td>686.000000</td>
+      <td>79.000000</td>
+      <td>1.209593e+12</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1021.000000</td>
+      <td>2203.000000</td>
+      <td>195.000000</td>
+      <td>1.243807e+12</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1624.000000</td>
+      <td>6714.000000</td>
+      <td>887.000000</td>
+      <td>1.275343e+12</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2100.000000</td>
+      <td>18744.000000</td>
+      <td>12647.000000</td>
+      <td>1.304941e+12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="user-tagged-artists">
+<h3>User Tagged Artists<a class="headerlink" href="#user-tagged-artists" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load user-tagged-artists</span>
+<span class="n">user_tagged_artists_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="s1">&#39;artistID&#39;</span><span class="p">,</span> <span class="s1">&#39;tagID&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">]</span>
+<span class="n">user_tagged_artists</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/user_taggedartists.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;	&#39;</span><span class="p">)</span>
+<span class="n">user_tagged_artists</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>tagID</th>
+      <th>day</th>
+      <th>month</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>52</td>
+      <td>13</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>52</td>
+      <td>15</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>52</td>
+      <td>18</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>52</td>
+      <td>21</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>52</td>
+      <td>41</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_tagged_artists</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>tagID</th>
+      <th>day</th>
+      <th>month</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>186479.000000</td>
+      <td>186479.000000</td>
+      <td>186479.000000</td>
+      <td>186479.000000</td>
+      <td>186479.000000</td>
+      <td>186479.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1035.600137</td>
+      <td>4375.845328</td>
+      <td>1439.582913</td>
+      <td>1.095566</td>
+      <td>6.524215</td>
+      <td>2008.809791</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>622.461272</td>
+      <td>4897.789595</td>
+      <td>2775.340279</td>
+      <td>0.712813</td>
+      <td>3.486855</td>
+      <td>1.410062</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1956.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>488.000000</td>
+      <td>686.000000</td>
+      <td>79.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>2008.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1021.000000</td>
+      <td>2203.000000</td>
+      <td>195.000000</td>
+      <td>1.000000</td>
+      <td>7.000000</td>
+      <td>2009.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1624.000000</td>
+      <td>6714.000000</td>
+      <td>887.000000</td>
+      <td>1.000000</td>
+      <td>10.000000</td>
+      <td>2010.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2100.000000</td>
+      <td>18744.000000</td>
+      <td>12647.000000</td>
+      <td>9.000000</td>
+      <td>12.000000</td>
+      <td>2011.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>The users tagged artist and users tagged artists timestamp are the same data across userID, artistID and tagID columns.</p>
+</div>
+</div>
+<div class="section" id="data-manipulation-and-visualisation">
+<h2>Data Manipulation and Visualisation<a class="headerlink" href="#data-manipulation-and-visualisation" title="Permalink to this headline">¶</a></h2>
+<p>We will bring all of our data together and create some visualisations to better understand the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>17627</th>
+      <td>18741</td>
+      <td>Diamanda Galás</td>
+    </tr>
+    <tr>
+      <th>17628</th>
+      <td>18742</td>
+      <td>Aya RL</td>
+    </tr>
+    <tr>
+      <th>17629</th>
+      <td>18743</td>
+      <td>Coptic Rain</td>
+    </tr>
+    <tr>
+      <th>17630</th>
+      <td>18744</td>
+      <td>Oz Alchemist</td>
+    </tr>
+    <tr>
+      <th>17631</th>
+      <td>18745</td>
+      <td>Grzegorz Tomczak</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>It is noted the index and the id don’t add up at the end of the dataframe so we need to be aware of this when we come to the recommender system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_artists</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>92829</th>
+      <td>2100</td>
+      <td>18726</td>
+      <td>337</td>
+    </tr>
+    <tr>
+      <th>92830</th>
+      <td>2100</td>
+      <td>18727</td>
+      <td>297</td>
+    </tr>
+    <tr>
+      <th>92831</th>
+      <td>2100</td>
+      <td>18728</td>
+      <td>281</td>
+    </tr>
+    <tr>
+      <th>92832</th>
+      <td>2100</td>
+      <td>18729</td>
+      <td>280</td>
+    </tr>
+    <tr>
+      <th>92833</th>
+      <td>2100</td>
+      <td>18730</td>
+      <td>263</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tags</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tagID</th>
+      <th>tagValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11941</th>
+      <td>12644</td>
+      <td>suomi</td>
+    </tr>
+    <tr>
+      <th>11942</th>
+      <td>12645</td>
+      <td>symbiosis</td>
+    </tr>
+    <tr>
+      <th>11943</th>
+      <td>12646</td>
+      <td>sverige</td>
+    </tr>
+    <tr>
+      <th>11944</th>
+      <td>12647</td>
+      <td>eire</td>
+    </tr>
+    <tr>
+      <th>11945</th>
+      <td>12648</td>
+      <td>electro latino</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_tagged_artists</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>tagID</th>
+      <th>day</th>
+      <th>month</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>186474</th>
+      <td>2100</td>
+      <td>16437</td>
+      <td>4</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>186475</th>
+      <td>2100</td>
+      <td>16437</td>
+      <td>292</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>186476</th>
+      <td>2100</td>
+      <td>16437</td>
+      <td>2087</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>186477</th>
+      <td>2100</td>
+      <td>16437</td>
+      <td>2801</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>186478</th>
+      <td>2100</td>
+      <td>16437</td>
+      <td>3335</td>
+      <td>1</td>
+      <td>7</td>
+      <td>2010</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_friends</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>friendID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25429</th>
+      <td>2099</td>
+      <td>1801</td>
+    </tr>
+    <tr>
+      <th>25430</th>
+      <td>2099</td>
+      <td>2006</td>
+    </tr>
+    <tr>
+      <th>25431</th>
+      <td>2099</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>25432</th>
+      <td>2100</td>
+      <td>586</td>
+    </tr>
+    <tr>
+      <th>25433</th>
+      <td>2100</td>
+      <td>607</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="merge-data-visualisations">
+<h1>Merge Data / Visualisations<a class="headerlink" href="#merge-data-visualisations" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_uta_t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">user_tagged_artists</span><span class="p">,</span> <span class="n">tags</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;tagID&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_uta_t</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>tagID</th>
+      <th>day</th>
+      <th>month</th>
+      <th>year</th>
+      <th>tagValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>52</td>
+      <td>13</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+      <td>chillout</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>63</td>
+      <td>13</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+      <td>chillout</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>73</td>
+      <td>13</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+      <td>chillout</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>94</td>
+      <td>13</td>
+      <td>1</td>
+      <td>4</td>
+      <td>2009</td>
+      <td>chillout</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>6177</td>
+      <td>13</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2009</td>
+      <td>chillout</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We want to create a calculated field counting how many of each unique tag have been applied. This will show us the most listened to genres.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_tag</span> <span class="o">=</span> <span class="n">merged_uta_t</span><span class="p">[[</span><span class="s1">&#39;userID&#39;</span><span class="p">,</span> <span class="s1">&#39;tagValue&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;tagValue&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">top_tag</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;userID&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#limit top tags to top 10</span>
+<span class="n">top_tag</span> <span class="o">=</span> <span class="n">top_tag</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">top_tag</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tagValue</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7473</th>
+      <td>rock</td>
+      <td>7503</td>
+    </tr>
+    <tr>
+      <th>6802</th>
+      <td>pop</td>
+      <td>5418</td>
+    </tr>
+    <tr>
+      <th>441</th>
+      <td>alternative</td>
+      <td>5251</td>
+    </tr>
+    <tr>
+      <th>2709</th>
+      <td>electronic</td>
+      <td>4672</td>
+    </tr>
+    <tr>
+      <th>4393</th>
+      <td>indie</td>
+      <td>4458</td>
+    </tr>
+    <tr>
+      <th>3099</th>
+      <td>female vocalists</td>
+      <td>4228</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>80s</td>
+      <td>2791</td>
+    </tr>
+    <tr>
+      <th>2120</th>
+      <td>dance</td>
+      <td>2739</td>
+    </tr>
+    <tr>
+      <th>457</th>
+      <td>alternative rock</td>
+      <td>2631</td>
+    </tr>
+    <tr>
+      <th>1834</th>
+      <td>classic rock</td>
+      <td>2287</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Display top ten tags</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;Paired&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tagValue&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">top_tag</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tagValue&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">r</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Top Tags per genre&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Tag&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_Exploration_49_0.png" src="_images/Data_Exploration_49_0.png" />
+</div>
+</div>
+<p>We can see rock is the dominant genre. Rock is the number one choice, but as we alluded to earlier, there is also alternative rock and classic rock as the 9th and 10th most popular choices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_ua_a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">user_artists</span><span class="p">,</span> <span class="n">artists</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;artistID&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">merged_ua_a</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>userID</th>
+      <th>artistID</th>
+      <th>weight</th>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>51</td>
+      <td>13883</td>
+      <td>51</td>
+      <td>Duran Duran</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>52</td>
+      <td>11690</td>
+      <td>52</td>
+      <td>Morcheeba</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>53</td>
+      <td>11351</td>
+      <td>53</td>
+      <td>Air</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>54</td>
+      <td>10300</td>
+      <td>54</td>
+      <td>Hooverphonic</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>55</td>
+      <td>8983</td>
+      <td>55</td>
+      <td>Kylie Minogue</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We now look at the different weights given to each of the artists indicating how much each artist has been listened to by users.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_artist</span> <span class="o">=</span> <span class="n">merged_ua_a</span><span class="p">[[</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">top_artist</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>!!!</td>
+      <td>2826</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>!DISTAIN</td>
+      <td>1257</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>!deladap</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>#####</td>
+      <td>3707</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>#2 Orchestra</td>
+      <td>144</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>17627</th>
+      <td>ＲＥＤ</td>
+      <td>373</td>
+    </tr>
+    <tr>
+      <th>17628</th>
+      <td>ＶａｎｅｓｓＡ</td>
+      <td>2172</td>
+    </tr>
+    <tr>
+      <th>17629</th>
+      <td>ｂｏｏｇｉｅｍａｎ</td>
+      <td>378</td>
+    </tr>
+    <tr>
+      <th>17630</th>
+      <td>ｂｏｒｎ</td>
+      <td>2287</td>
+    </tr>
+    <tr>
+      <th>17631</th>
+      <td>ｍａｃｈｉｎｅ</td>
+      <td>1338</td>
+    </tr>
+  </tbody>
+</table>
+<p>17632 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Display distribution of artists cumulative weights</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">top_artist</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of weight across Artists&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_Exploration_54_0.png" src="_images/Data_Exploration_54_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_artist</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1.763200e+04</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.923774e+03</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3.409934e+04</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.130000e+02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.500000e+02</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.234250e+03</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.393140e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This data is extremely right skewed with some large outliers (max value of 2,393,140) which is making it difficult to visualise the distribution. We will use log scale to enable us to do so.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Display artists weights- log</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">top_artist</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">log_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of weight across Artists - LOG SCALE&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Weight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Data_Exploration_57_0.png" src="_images/Data_Exploration_57_0.png" />
+</div>
+</div>
+<p>There appears to be a normal distribution around the log scale of weights assigned to each artist.</p>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>We have completed our preliminary analysis of the data provided. We understand the weights value varies greatly across the data set. We also have an indication that there are a large number of highly linked users and friends across the data. We are hopeful that with all of this data we will be able to create a useful music recommender system.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Recommender_System.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Music Recommender System</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By George Dockrell<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
