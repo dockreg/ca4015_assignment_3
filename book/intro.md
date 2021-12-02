@@ -1,14 +1,14 @@
 # Introduction
 
-Recommender systems such as Spotify or Apple music are designed to offer suggestions to users for artists or songs that they may be interested in. These recommendations are based on previous listening history, or similar users listening habits. Spotify's recommender system uses Collaborative filtering, Natural Language Processing and audio modelling {cite:p}`ProducerHive`. Spotify leverages another algorithm named Bart which manages the home screen by ranking the cards and the shelves for the best engagement, while trying to provide explanations for the suggestions {cite:p}`mcinerney2018explore`. Netflix is another example of a widely used recommender system which presents recommendations while explaining the reason for that choice. For example, this can be due to previously watched films or popularity in that region. It does this through a variety of algorithms {cite:p}`gomez2015netflix`. Recommender systems aren't exclusive to music and streaming sites. They are also used across e-commerce, dating apps, news websites and research articles sites alike.
+Recommender systems such as Spotify or Apple music are designed to offer suggestions to users for artists or songs that they may be interested in. These recommendations are based on previous listening history, or similar users listening habits. Spotify's recommender system uses Collaborative filtering, Natural Language Processing and audio modelling {cite}`ProducerHive`. Spotify leverages another algorithm named Bart which manages the home screen by ranking the cards and the shelves for the best engagement, while trying to provide explanations for the suggestions {cite}`mcinerney2018explore`. Netflix is another example of a widely used recommender system which presents recommendations while explaining the reason for that choice. For example, this can be due to previously watched films or popularity in that region. It does this through a variety of algorithms {cite}`gomez2015netflix`. Recommender systems aren't exclusive to music and streaming sites. They are also used across e-commerce, dating apps, news websites and research articles sites alike.
 
 # Approaches to Creating a Recommender System
 
-Collaborative filtering and content based filtering are two starting points when it comes to building a recommender system {cite:p}`koren2009matrix`.
+Collaborative filtering and content based filtering are two starting points when it comes to building a recommender system {cite}`koren2009matrix`.
 
 ## Collaborative filtering
 
-This method was first proposed in 1992 {cite:p}`goldberg1992using` and has become a widely used strategy for recommender systems ever since. This relies on the previous ratings of users and their similarity to other users in the past to paint a picture of their potential interests. This method doesn't require any domain information of the product itself as it relies on the premise that users who have similar tastes in music will be a good predictor for a unseen product based on their similarities in the past.
+This method was first proposed in 1992 {cite}`goldberg1992using` and has become a widely used strategy for recommender systems ever since. This relies on the previous ratings of users and their similarity to other users in the past to paint a picture of their potential interests. This method doesn't require any domain information of the product itself as it relies on the premise that users who have similar tastes in music will be a good predictor for a unseen product based on their similarities in the past.
 
 ## Content based filtering
 
@@ -20,8 +20,8 @@ This project seeks to create a music recommender system based on collaborative f
 
 ## Matrix Factorisation
 
-Matrix factorisation models map users and items to a joint latent factor space of dimensionality such that user-item interactions are modeled as inner products in that space {cite:p}`koren2009matrix`. In this project, matrix factorisaton characterises users and artists by vectors created using artist weighting patterns where a high correspondance will result in a recommendation.
+Matrix factorisation models map users and items to a joint latent factor space of dimensionality such that user-item interactions are modeled as inner products in that space {cite}`koren2009matrix`. In this project, matrix factorisaton characterises users and artists by vectors created using artist weighting patterns where a high correspondance will result in a recommendation.
 
 # Dataset
 
-This dataset is from Last.FM and made available thanks to the 2nd International Workshop on Information Heterogeneity and Fusion in Recommender Systems {cite:p}`cantador2011proceedings`. It contains 92,800 listening records from 1,892 users across 6 files and can be accessed [*here*](https://grouplens.org/datasets/hetrec-2011/).
+This dataset is from Last.FM and made available thanks to the 2nd International Workshop on Information Heterogeneity and Fusion in Recommender Systems {cite}`cantador2011proceedings`. It contains 92,800 listening records from 1,892 users across 6 files and can be accessed [*here*](https://grouplens.org/datasets/hetrec-2011/).

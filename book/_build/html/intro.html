@@ -141,6 +141,11 @@
    Novel Lyrics Display
   </a>
  </li>
+ <li class="toctree-l1 toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="intro.html#document-zbibliography">
+   Bibliography
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -154,14 +159,14 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>Recommender systems such as Spotify or Apple music are designed to offer suggestions to users for artists or songs that they may be interested in. These recommendations are based on previous listening history, or similar users listening habits. Spotify’s recommender system uses Collaborative filtering, Natural Language Processing and audio modelling <span id="id1">[]</span>. Spotify leverages another algorithm named Bart which manages the home screen by ranking the cards and the shelves for the best engagement, while trying to provide explanations for the suggestions <span id="id2">[]</span>. Netflix is another example of a widely used recommender system which presents recommendations while explaining the reason for that choice. For example, this can be due to previously watched films or popularity in that region. It does this through a variety of algorithms <span id="id3">[]</span>. Recommender systems aren’t exclusive to music and streaming sites. They are also used across e-commerce, dating apps, news websites and research articles sites alike.</p>
+<p>Recommender systems such as Spotify or Apple music are designed to offer suggestions to users for artists or songs that they may be interested in. These recommendations are based on previous listening history, or similar users listening habits. Spotify’s recommender system uses Collaborative filtering, Natural Language Processing and audio modelling <span id="id1">[<a class="reference internal" href="intro.html#id6">ProducerHive, 2021</a>]</span>. Spotify leverages another algorithm named Bart which manages the home screen by ranking the cards and the shelves for the best engagement, while trying to provide explanations for the suggestions <span id="id2">[<a class="reference internal" href="intro.html#id4">McInerney <em>et al.</em>, 2018</a>]</span>. Netflix is another example of a widely used recommender system which presents recommendations while explaining the reason for that choice. For example, this can be due to previously watched films or popularity in that region. It does this through a variety of algorithms <span id="id3">[<a class="reference internal" href="intro.html#id5">Gomez-Uribe and Hunt, 2015</a>]</span>. Recommender systems aren’t exclusive to music and streaming sites. They are also used across e-commerce, dating apps, news websites and research articles sites alike.</p>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="approaches-to-creating-a-recommender-system">
 <h1>Approaches to Creating a Recommender System<a class="headerlink" href="#approaches-to-creating-a-recommender-system" title="Permalink to this headline">¶</a></h1>
-<p>Collaborative filtering and content based filtering are two starting points when it comes to building a recommender system <span id="id4">[]</span>.</p>
+<p>Collaborative filtering and content based filtering are two starting points when it comes to building a recommender system <span id="id4">[<a class="reference internal" href="intro.html#id3">Koren <em>et al.</em>, 2009</a>]</span>.</p>
 <div class="section" id="collaborative-filtering">
 <h2>Collaborative filtering<a class="headerlink" href="#collaborative-filtering" title="Permalink to this headline">¶</a></h2>
-<p>This method was first proposed in 1992 <span id="id5">[]</span> and has become a widely used strategy for recommender systems ever since. This relies on the previous ratings of users and their similarity to other users in the past to paint a picture of their potential interests. This method doesn’t require any domain information of the product itself as it relies on the premise that users who have similar tastes in music will be a good predictor for a unseen product based on their similarities in the past.</p>
+<p>This method was first proposed in 1992 <span id="id5">[<a class="reference internal" href="intro.html#id2">Goldberg <em>et al.</em>, 1992</a>]</span> and has become a widely used strategy for recommender systems ever since. This relies on the previous ratings of users and their similarity to other users in the past to paint a picture of their potential interests. This method doesn’t require any domain information of the product itself as it relies on the premise that users who have similar tastes in music will be a good predictor for a unseen product based on their similarities in the past.</p>
 </div>
 <div class="section" id="content-based-filtering">
 <h2>Content based filtering<a class="headerlink" href="#content-based-filtering" title="Permalink to this headline">¶</a></h2>
@@ -173,12 +178,12 @@
 <p>This project seeks to create a music recommender system based on collaborative filtering. The system is created using code available via Google’s introduction to recommender systems using Google Colab <a class="reference external" href="https://colab.research.google.com/github/google/eng-edu/blob/main/ml/recommendation-systems/recommendation-systems.ipynb?utm_source=ss-recommendation-systems&amp;utm_campaign=colab-external&amp;utm_medium=referral&amp;utm_content=recommendation-systems#scrollTo=eSfW6SwIo4tk"><em>here</em></a>. It uses matrix factorisation to learn user and artist embeddings and uses stochastic gradient descent (SGD) to minimise the loss function.</p>
 <div class="section" id="matrix-factorisation">
 <h2>Matrix Factorisation<a class="headerlink" href="#matrix-factorisation" title="Permalink to this headline">¶</a></h2>
-<p>Matrix factorisation models map users and items to a joint latent factor space of dimensionality such that user-item interactions are modeled as inner products in that space <span id="id6">[]</span>. In this project, matrix factorisaton characterises users and artists by vectors created using artist weighting patterns where a high correspondance will result in a recommendation.</p>
+<p>Matrix factorisation models map users and items to a joint latent factor space of dimensionality such that user-item interactions are modeled as inner products in that space <span id="id6">[<a class="reference internal" href="intro.html#id3">Koren <em>et al.</em>, 2009</a>]</span>. In this project, matrix factorisaton characterises users and artists by vectors created using artist weighting patterns where a high correspondance will result in a recommendation.</p>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="dataset">
 <h1>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h1>
-<p>This dataset is from <a class="reference external" href="http://Last.FM">Last.FM</a> and made available thanks to the 2nd International Workshop on Information Heterogeneity and Fusion in Recommender Systems <span id="id7">[]</span>. It contains 92,800 listening records from 1,892 users across 6 files and can be accessed <a class="reference external" href="https://grouplens.org/datasets/hetrec-2011/"><em>here</em></a>.</p>
+<p>This dataset is from <a class="reference external" href="http://Last.FM">Last.FM</a> and made available thanks to the 2nd International Workshop on Information Heterogeneity and Fusion in Recommender Systems <span id="id7">[<a class="reference internal" href="intro.html#id7">Cantador, 2011</a>]</span>. It contains 92,800 listening records from 1,892 users across 6 files and can be accessed <a class="reference external" href="https://grouplens.org/datasets/hetrec-2011/"><em>here</em></a>.</p>
 <div class="toctree-wrapper compound">
 <span id="document-Data_Exploration"></span><div class="tex2jax_ignore mathjax_ignore section" id="data-exploration">
 <h2>Data Exploration<a class="headerlink" href="#data-exploration" title="Permalink to this headline">¶</a></h2>
@@ -2748,185 +2753,189 @@ non-resource variables are not supported in the long term
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-01 21:57:52.300490: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-02 09:25:17.668856: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error=1.906033, test_error=1.933137
- iteration 10: train_error=1.547279, test_error=1.685794
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error=1.888031, test_error=1.851514
+ iteration 10: train_error=1.534868, test_error=1.621668
+ iteration 20: train_error=1.287163, test_error=1.459350
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 20: train_error=1.295970, test_error=1.513266
- iteration 30: train_error=1.108595, test_error=1.384579
- iteration 40: train_error=0.963041, test_error=1.284134
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 30: train_error=1.102333, test_error=1.337410
+ iteration 40: train_error=0.958629, test_error=1.241807
+ iteration 50: train_error=0.843567, test_error=1.164468
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 50: train_error=0.846618, test_error=1.203112
- iteration 60: train_error=0.751424, test_error=1.136108
- iteration 70: train_error=0.672236, test_error=1.079607
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 60: train_error=0.749380, test_error=1.100390
+ iteration 70: train_error=0.670939, test_error=1.046289
+ iteration 80: train_error=0.604698, test_error=0.999911
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 80: train_error=0.605439, test_error=1.031207
- iteration 90: train_error=0.548442, test_error=0.989209
- iteration 100: train_error=0.499332, test_error=0.952372
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 90: train_error=0.548113, test_error=0.959651
+ iteration 100: train_error=0.499309, test_error=0.924331
+ iteration 110: train_error=0.456866, test_error=0.893065
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 110: train_error=0.456663, test_error=0.919764
- iteration 120: train_error=0.419320, test_error=0.890670
- iteration 130: train_error=0.386429, test_error=0.864535
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 120: train_error=0.419688, test_error=0.865172
+ iteration 130: train_error=0.386916, test_error=0.840120
+ iteration 140: train_error=0.357864, test_error=0.817484
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 140: train_error=0.357293, test_error=0.840915
- iteration 150: train_error=0.331351, test_error=0.819454
- iteration 160: train_error=0.308146, test_error=0.799862
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 150: train_error=0.331980, test_error=0.796923
+ iteration 160: train_error=0.308812, test_error=0.778157
+ iteration 170: train_error=0.287990, test_error=0.760956
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 170: train_error=0.287300, test_error=0.781899
- iteration 180: train_error=0.268503, test_error=0.765366
- iteration 190: train_error=0.251491, test_error=0.750096
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 180: train_error=0.269204, test_error=0.745128
+ iteration 190: train_error=0.252195, test_error=0.730513
+ iteration 200: train_error=0.236745, test_error=0.716973
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 200: train_error=0.236044, test_error=0.735946
- iteration 210: train_error=0.221975, test_error=0.722796
- iteration 220: train_error=0.209125, test_error=0.710541
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 210: train_error=0.222668, test_error=0.704391
+ iteration 220: train_error=0.209807, test_error=0.692669
+ iteration 230: train_error=0.198024, test_error=0.681718
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 230: train_error=0.197355, test_error=0.699093
- iteration 240: train_error=0.186549, test_error=0.688373
- iteration 250: train_error=0.176604, test_error=0.678313
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 240: train_error=0.187204, test_error=0.671465
+ iteration 250: train_error=0.177243, test_error=0.661842
+ iteration 260: train_error=0.168053, test_error=0.652794
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 260: train_error=0.167430, test_error=0.668853
- iteration 270: train_error=0.158950, test_error=0.659941
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 270: train_error=0.159558, test_error=0.644269
+ iteration 280: train_error=0.151688, test_error=0.636223
+ iteration 290: train_error=0.144383, test_error=0.628615
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 280: train_error=0.151095, test_error=0.651529
- iteration 290: train_error=0.143807, test_error=0.643577
- iteration 300: train_error=0.137030, test_error=0.636048
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 300: train_error=0.137592, test_error=0.621410
+ iteration 310: train_error=0.131268, test_error=0.614577
+ iteration 320: train_error=0.125367, test_error=0.608086
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 310: train_error=0.130720, test_error=0.628908
- iteration 320: train_error=0.124833, test_error=0.622128
- iteration 330: train_error=0.119333, test_error=0.615681
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 330: train_error=0.119855, test_error=0.601913
+ iteration 340: train_error=0.114696, test_error=0.596034
+ iteration 350: train_error=0.109863, test_error=0.590428
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 340: train_error=0.114187, test_error=0.609543
- iteration 350: train_error=0.109365, test_error=0.603693
- iteration 360: train_error=0.104840, test_error=0.598110
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 360: train_error=0.105327, test_error=0.585077
+ iteration 370: train_error=0.101066, test_error=0.579963
+ iteration 380: train_error=0.097057, test_error=0.575071
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 370: train_error=0.100588, test_error=0.592776
- iteration 380: train_error=0.096589, test_error=0.587676
- iteration 390: train_error=0.092821, test_error=0.582793
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 390: train_error=0.093281, test_error=0.570386
+ iteration 400: train_error=0.089720, test_error=0.565895
+ iteration 410: train_error=0.086358, test_error=0.561586
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 400: train_error=0.089269, test_error=0.578115
- iteration 410: train_error=0.085915, test_error=0.573629
- iteration 420: train_error=0.082745, test_error=0.569322
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 420: train_error=0.083182, test_error=0.557449
+ iteration 430: train_error=0.080176, test_error=0.553472
+ iteration 440: train_error=0.077330, test_error=0.549647
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 430: train_error=0.079746, test_error=0.565186
- iteration 440: train_error=0.076906, test_error=0.561209
- iteration 450: train_error=0.074214, test_error=0.557383
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 450: train_error=0.074631, test_error=0.545965
+ iteration 460: train_error=0.072071, test_error=0.542417
+ iteration 470: train_error=0.069640, test_error=0.538998
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 460: train_error=0.071659, test_error=0.553699
- iteration 470: train_error=0.069233, test_error=0.550149
- iteration 480: train_error=0.066927, test_error=0.546727
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 480: train_error=0.067329, test_error=0.535699
+ iteration 490: train_error=0.065131, test_error=0.532515
+ iteration 500: train_error=0.063038, test_error=0.529439
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 490: train_error=0.064733, test_error=0.543425
- iteration 500: train_error=0.062644, test_error=0.540237
- iteration 510: train_error=0.060654, test_error=0.537158
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 510: train_error=0.061043, test_error=0.526466
+ iteration 520: train_error=0.059141, test_error=0.523591
+ iteration 530: train_error=0.057326, test_error=0.520808
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 520: train_error=0.058756, test_error=0.534182
- iteration 530: train_error=0.056945, test_error=0.531304
- iteration 540: train_error=0.055215, test_error=0.528519
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 540: train_error=0.055593, test_error=0.518115
+ iteration 550: train_error=0.053937, test_error=0.515505
+ iteration 560: train_error=0.052353, test_error=0.512976
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 550: train_error=0.053562, test_error=0.525823
- iteration 560: train_error=0.051981, test_error=0.523212
- iteration 570: train_error=0.050468, test_error=0.520681
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 570: train_error=0.050837, test_error=0.510524
+ iteration 580: train_error=0.049385, test_error=0.508145
+ iteration 590: train_error=0.047995, test_error=0.505836
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 580: train_error=0.049019, test_error=0.518227
- iteration 590: train_error=0.047632, test_error=0.515847
- iteration 600: train_error=0.046301, test_error=0.513537
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 600: train_error=0.046661, test_error=0.503593
+ iteration 610: train_error=0.045382, test_error=0.501415
+ iteration 620: train_error=0.044154, test_error=0.499298
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 610: train_error=0.045024, test_error=0.511295
- iteration 620: train_error=0.043799, test_error=0.509117
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 630: train_error=0.042975, test_error=0.497240
+ iteration 640: train_error=0.041843, test_error=0.495238
+ iteration 650: train_error=0.040753, test_error=0.493289
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 630: train_error=0.042623, test_error=0.507000
- iteration 640: train_error=0.041492, test_error=0.504943
- iteration 650: train_error=0.040406, test_error=0.502942
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 660: train_error=0.039706, test_error=0.491393
+ iteration 670: train_error=0.038697, test_error=0.489547
+ iteration 680: train_error=0.037727, test_error=0.487748
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 660: train_error=0.039360, test_error=0.500996
- iteration 670: train_error=0.038354, test_error=0.499102
- iteration 680: train_error=0.037386, test_error=0.497259
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 690: train_error=0.036791, test_error=0.485995
+ iteration 700: train_error=0.035890, test_error=0.484287
+ iteration 710: train_error=0.035021, test_error=0.482621
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 690: train_error=0.036453, test_error=0.495463
- iteration 700: train_error=0.035554, test_error=0.493714
- iteration 710: train_error=0.034687, test_error=0.492009
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 720: train_error=0.034183, test_error=0.480996
+ iteration 730: train_error=0.033374, test_error=0.479410
+ iteration 740: train_error=0.032593, test_error=0.477863
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 720: train_error=0.033851, test_error=0.490348
- iteration 730: train_error=0.033044, test_error=0.488728
- iteration 740: train_error=0.032266, test_error=0.487147
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 750: train_error=0.031839, test_error=0.476353
+ iteration 760: train_error=0.031111, test_error=0.474877
+ iteration 770: train_error=0.030406, test_error=0.473436
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 750: train_error=0.031514, test_error=0.485605
- iteration 760: train_error=0.030787, test_error=0.484100
- iteration 770: train_error=0.030085, test_error=0.482631
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error=0.029725, test_error=0.472028
+ iteration 790: train_error=0.029067, test_error=0.470652
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error=0.029406, test_error=0.481197
- iteration 790: train_error=0.028749, test_error=0.479795
- iteration 800: train_error=0.028114, test_error=0.478426
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 800: train_error=0.028429, test_error=0.469307
+ iteration 810: train_error=0.027812, test_error=0.467992
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 810: train_error=0.027499, test_error=0.477088
- iteration 820: train_error=0.026904, test_error=0.475780
- iteration 830: train_error=0.026327, test_error=0.474501
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 820: train_error=0.027215, test_error=0.466705
+ iteration 830: train_error=0.026636, test_error=0.465446
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error=0.025768, test_error=0.473250
- iteration 850: train_error=0.025227, test_error=0.472026
- iteration 860: train_error=0.024702, test_error=0.470829
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error=0.026075, test_error=0.464215
+ iteration 850: train_error=0.025532, test_error=0.463009
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 870: train_error=0.024193, test_error=0.469657
- iteration 880: train_error=0.023699, test_error=0.468510
- iteration 890: train_error=0.023220, test_error=0.467387
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 860: train_error=0.025005, test_error=0.461829
+ iteration 870: train_error=0.024493, test_error=0.460673
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error=0.022755, test_error=0.466287
- iteration 910: train_error=0.022303, test_error=0.465210
- iteration 920: train_error=0.021864, test_error=0.464154
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 880: train_error=0.023997, test_error=0.459541
+ iteration 890: train_error=0.023516, test_error=0.458432
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 930: train_error=0.021438, test_error=0.463120
- iteration 940: train_error=0.021024, test_error=0.462106
- iteration 950: train_error=0.020622, test_error=0.461113
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error=0.023049, test_error=0.457346
+ iteration 910: train_error=0.022595, test_error=0.456281
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error=0.020230, test_error=0.460138
- iteration 970: train_error=0.019850, test_error=0.459183
- iteration 980: train_error=0.019479, test_error=0.458246
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 920: train_error=0.022154, test_error=0.455237
+ iteration 930: train_error=0.021726, test_error=0.454214
+ iteration 940: train_error=0.021310, test_error=0.453211
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 990: train_error=0.019119, test_error=0.457326
- iteration 1000: train_error=0.018769, test_error=0.456424
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 950: train_error=0.020906, test_error=0.452227
+ iteration 960: train_error=0.020512, test_error=0.451261
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;train_error&#39;: 0.018768793, &#39;test_error&#39;: 0.45642427}]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 970: train_error=0.020130, test_error=0.450314
+ iteration 980: train_error=0.019758, test_error=0.449385
+ iteration 990: train_error=0.019395, test_error=0.448472
 </pre></div>
 </div>
-<img alt="_images/Recommender_System_31_37.png" src="_images/Recommender_System_31_37.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1000: train_error=0.019043, test_error=0.447577
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;train_error&#39;: 0.01904296, &#39;test_error&#39;: 0.44757697}]
+</pre></div>
+</div>
+<img alt="_images/Recommender_System_31_39.png" src="_images/Recommender_System_31_39.png" />
 </div>
 </div>
 </div>
@@ -3015,34 +3024,34 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
   </thead>
   <tbody>
     <tr>
-      <th>5870</th>
-      <td>2.593627</td>
-      <td>Sofia Nizharadze</td>
+      <th>5638</th>
+      <td>3.441453</td>
+      <td>Boy Talks Trash</td>
     </tr>
     <tr>
-      <th>17373</th>
-      <td>2.554927</td>
-      <td>Amycanbe</td>
+      <th>17278</th>
+      <td>3.338759</td>
+      <td>Lava</td>
     </tr>
     <tr>
-      <th>5673</th>
-      <td>2.513354</td>
-      <td>Valve</td>
+      <th>712</th>
+      <td>3.249975</td>
+      <td>Johnny Cash</td>
     </tr>
     <tr>
-      <th>6509</th>
-      <td>2.439311</td>
-      <td>Blood Axis</td>
+      <th>9645</th>
+      <td>3.093319</td>
+      <td>Die Fantastischen Vier</td>
     </tr>
     <tr>
-      <th>1108</th>
-      <td>2.423170</td>
-      <td>Claude Debussy</td>
+      <th>2129</th>
+      <td>3.087614</td>
+      <td>Георг Корг</td>
     </tr>
     <tr>
-      <th>9219</th>
-      <td>2.365079</td>
-      <td>The Locust</td>
+      <th>6110</th>
+      <td>3.066176</td>
+      <td>Negative</td>
     </tr>
   </tbody>
 </table>
@@ -3079,29 +3088,29 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
       <td>Johnny Cash</td>
     </tr>
     <tr>
-      <th>5673</th>
-      <td>0.680766</td>
-      <td>Valve</td>
+      <th>17278</th>
+      <td>0.640777</td>
+      <td>Lava</td>
     </tr>
     <tr>
-      <th>17373</th>
-      <td>0.615704</td>
-      <td>Amycanbe</td>
+      <th>17086</th>
+      <td>0.636165</td>
+      <td>The Post-Modern Cliche</td>
     </tr>
     <tr>
-      <th>14427</th>
-      <td>0.608417</td>
-      <td>Маша Badda Boo</td>
+      <th>5638</th>
+      <td>0.619617</td>
+      <td>Boy Talks Trash</td>
     </tr>
     <tr>
-      <th>2682</th>
-      <td>0.605275</td>
-      <td>Bondage Fairies</td>
+      <th>13065</th>
+      <td>0.603140</td>
+      <td>Konami</td>
     </tr>
     <tr>
-      <th>5018</th>
-      <td>0.601247</td>
-      <td>Delux</td>
+      <th>4114</th>
+      <td>0.594109</td>
+      <td>The Suicide Machines</td>
     </tr>
   </tbody>
 </table>
@@ -3124,175 +3133,181 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error=0.000295, test_error=0.000384
- iteration 10: train_error=0.000294, test_error=0.000384
- iteration 20: train_error=0.000294, test_error=0.000384
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error=0.000300, test_error=0.000366
+ iteration 10: train_error=0.000299, test_error=0.000366
+ iteration 20: train_error=0.000299, test_error=0.000366
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 30: train_error=0.000294, test_error=0.000384
- iteration 40: train_error=0.000293, test_error=0.000383
- iteration 50: train_error=0.000293, test_error=0.000383
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 30: train_error=0.000298, test_error=0.000365
+ iteration 40: train_error=0.000298, test_error=0.000365
+ iteration 50: train_error=0.000297, test_error=0.000365
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 60: train_error=0.000292, test_error=0.000383
- iteration 70: train_error=0.000292, test_error=0.000383
- iteration 80: train_error=0.000291, test_error=0.000382
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 60: train_error=0.000297, test_error=0.000365
+ iteration 70: train_error=0.000296, test_error=0.000364
+ iteration 80: train_error=0.000296, test_error=0.000364
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 90: train_error=0.000291, test_error=0.000382
- iteration 100: train_error=0.000290, test_error=0.000382
- iteration 110: train_error=0.000290, test_error=0.000381
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 90: train_error=0.000295, test_error=0.000364
+ iteration 100: train_error=0.000295, test_error=0.000364
+ iteration 110: train_error=0.000294, test_error=0.000363
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 120: train_error=0.000289, test_error=0.000381
- iteration 130: train_error=0.000289, test_error=0.000381
- iteration 140: train_error=0.000288, test_error=0.000381
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 120: train_error=0.000294, test_error=0.000363
+ iteration 130: train_error=0.000293, test_error=0.000363
+ iteration 140: train_error=0.000293, test_error=0.000363
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 150: train_error=0.000288, test_error=0.000380
- iteration 160: train_error=0.000287, test_error=0.000380
- iteration 170: train_error=0.000287, test_error=0.000380
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 150: train_error=0.000292, test_error=0.000362
+ iteration 160: train_error=0.000292, test_error=0.000362
+ iteration 170: train_error=0.000291, test_error=0.000362
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 180: train_error=0.000287, test_error=0.000380
- iteration 190: train_error=0.000286, test_error=0.000379
- iteration 200: train_error=0.000286, test_error=0.000379
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 180: train_error=0.000291, test_error=0.000362
+ iteration 190: train_error=0.000290, test_error=0.000361
+ iteration 200: train_error=0.000290, test_error=0.000361
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 210: train_error=0.000285, test_error=0.000379
- iteration 220: train_error=0.000285, test_error=0.000379
- iteration 230: train_error=0.000284, test_error=0.000379
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 210: train_error=0.000289, test_error=0.000361
+ iteration 220: train_error=0.000289, test_error=0.000361
+ iteration 230: train_error=0.000288, test_error=0.000360
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 240: train_error=0.000284, test_error=0.000378
- iteration 250: train_error=0.000283, test_error=0.000378
- iteration 260: train_error=0.000283, test_error=0.000378
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 240: train_error=0.000288, test_error=0.000360
+ iteration 250: train_error=0.000288, test_error=0.000360
+ iteration 260: train_error=0.000287, test_error=0.000360
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 270: train_error=0.000283, test_error=0.000378
- iteration 280: train_error=0.000282, test_error=0.000377
- iteration 290: train_error=0.000282, test_error=0.000377
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 270: train_error=0.000287, test_error=0.000359
+ iteration 280: train_error=0.000286, test_error=0.000359
+ iteration 290: train_error=0.000286, test_error=0.000359
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 300: train_error=0.000281, test_error=0.000377
- iteration 310: train_error=0.000281, test_error=0.000377
- iteration 320: train_error=0.000280, test_error=0.000376
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 300: train_error=0.000285, test_error=0.000359
+ iteration 310: train_error=0.000285, test_error=0.000358
+ iteration 320: train_error=0.000284, test_error=0.000358
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 330: train_error=0.000280, test_error=0.000376
- iteration 340: train_error=0.000280, test_error=0.000376
- iteration 350: train_error=0.000279, test_error=0.000376
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 330: train_error=0.000284, test_error=0.000358
+ iteration 340: train_error=0.000283, test_error=0.000358
+ iteration 350: train_error=0.000283, test_error=0.000357
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 360: train_error=0.000279, test_error=0.000375
- iteration 370: train_error=0.000278, test_error=0.000375
- iteration 380: train_error=0.000278, test_error=0.000375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 360: train_error=0.000283, test_error=0.000357
+ iteration 370: train_error=0.000282, test_error=0.000357
+ iteration 380: train_error=0.000282, test_error=0.000357
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 390: train_error=0.000277, test_error=0.000375
- iteration 400: train_error=0.000277, test_error=0.000375
- iteration 410: train_error=0.000277, test_error=0.000374
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 390: train_error=0.000281, test_error=0.000356
+ iteration 400: train_error=0.000281, test_error=0.000356
+ iteration 410: train_error=0.000280, test_error=0.000356
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 420: train_error=0.000276, test_error=0.000374
- iteration 430: train_error=0.000276, test_error=0.000374
- iteration 440: train_error=0.000275, test_error=0.000374
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 420: train_error=0.000280, test_error=0.000356
+ iteration 430: train_error=0.000280, test_error=0.000356
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 450: train_error=0.000275, test_error=0.000373
- iteration 460: train_error=0.000275, test_error=0.000373
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 440: train_error=0.000279, test_error=0.000355
+ iteration 450: train_error=0.000279, test_error=0.000355
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 470: train_error=0.000274, test_error=0.000373
- iteration 480: train_error=0.000274, test_error=0.000373
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 460: train_error=0.000278, test_error=0.000355
+ iteration 470: train_error=0.000278, test_error=0.000355
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 490: train_error=0.000273, test_error=0.000373
- iteration 500: train_error=0.000273, test_error=0.000372
- iteration 510: train_error=0.000273, test_error=0.000372
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 480: train_error=0.000278, test_error=0.000354
+ iteration 490: train_error=0.000277, test_error=0.000354
+ iteration 500: train_error=0.000277, test_error=0.000354
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 520: train_error=0.000272, test_error=0.000372
- iteration 530: train_error=0.000272, test_error=0.000372
- iteration 540: train_error=0.000271, test_error=0.000372
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 510: train_error=0.000276, test_error=0.000354
+ iteration 520: train_error=0.000276, test_error=0.000354
+ iteration 530: train_error=0.000275, test_error=0.000353
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 550: train_error=0.000271, test_error=0.000371
- iteration 560: train_error=0.000271, test_error=0.000371
- iteration 570: train_error=0.000270, test_error=0.000371
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 540: train_error=0.000275, test_error=0.000353
+ iteration 550: train_error=0.000275, test_error=0.000353
+ iteration 560: train_error=0.000274, test_error=0.000353
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 580: train_error=0.000270, test_error=0.000371
- iteration 590: train_error=0.000270, test_error=0.000370
- iteration 600: train_error=0.000269, test_error=0.000370
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 570: train_error=0.000274, test_error=0.000353
+ iteration 580: train_error=0.000273, test_error=0.000352
+ iteration 590: train_error=0.000273, test_error=0.000352
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 610: train_error=0.000269, test_error=0.000370
- iteration 620: train_error=0.000268, test_error=0.000370
- iteration 630: train_error=0.000268, test_error=0.000370
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 600: train_error=0.000273, test_error=0.000352
+ iteration 610: train_error=0.000272, test_error=0.000352
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 640: train_error=0.000268, test_error=0.000369
- iteration 650: train_error=0.000267, test_error=0.000369
- iteration 660: train_error=0.000267, test_error=0.000369
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 620: train_error=0.000272, test_error=0.000351
+ iteration 630: train_error=0.000271, test_error=0.000351
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 670: train_error=0.000266, test_error=0.000369
- iteration 680: train_error=0.000266, test_error=0.000369
- iteration 690: train_error=0.000266, test_error=0.000368
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 640: train_error=0.000271, test_error=0.000351
+ iteration 650: train_error=0.000271, test_error=0.000351
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 700: train_error=0.000265, test_error=0.000368
- iteration 710: train_error=0.000265, test_error=0.000368
- iteration 720: train_error=0.000265, test_error=0.000368
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 660: train_error=0.000270, test_error=0.000351
+ iteration 670: train_error=0.000270, test_error=0.000350
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 730: train_error=0.000264, test_error=0.000368
- iteration 740: train_error=0.000264, test_error=0.000367
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 680: train_error=0.000269, test_error=0.000350
+ iteration 690: train_error=0.000269, test_error=0.000350
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 750: train_error=0.000264, test_error=0.000367
- iteration 760: train_error=0.000263, test_error=0.000367
- iteration 770: train_error=0.000263, test_error=0.000367
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 700: train_error=0.000269, test_error=0.000350
+ iteration 710: train_error=0.000268, test_error=0.000350
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error=0.000262, test_error=0.000367
- iteration 790: train_error=0.000262, test_error=0.000366
- iteration 800: train_error=0.000262, test_error=0.000366
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 720: train_error=0.000268, test_error=0.000349
+ iteration 730: train_error=0.000268, test_error=0.000349
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 810: train_error=0.000261, test_error=0.000366
- iteration 820: train_error=0.000261, test_error=0.000366
- iteration 830: train_error=0.000261, test_error=0.000366
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 740: train_error=0.000267, test_error=0.000349
+ iteration 750: train_error=0.000267, test_error=0.000349
+ iteration 760: train_error=0.000266, test_error=0.000349
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error=0.000260, test_error=0.000366
- iteration 850: train_error=0.000260, test_error=0.000365
- iteration 860: train_error=0.000260, test_error=0.000365
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 770: train_error=0.000266, test_error=0.000348
+ iteration 780: train_error=0.000266, test_error=0.000348
+ iteration 790: train_error=0.000265, test_error=0.000348
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 870: train_error=0.000259, test_error=0.000365
- iteration 880: train_error=0.000259, test_error=0.000365
- iteration 890: train_error=0.000259, test_error=0.000365
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 800: train_error=0.000265, test_error=0.000348
+ iteration 810: train_error=0.000265, test_error=0.000348
+ iteration 820: train_error=0.000264, test_error=0.000347
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error=0.000258, test_error=0.000364
- iteration 910: train_error=0.000258, test_error=0.000364
- iteration 920: train_error=0.000258, test_error=0.000364
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 830: train_error=0.000264, test_error=0.000347
+ iteration 840: train_error=0.000263, test_error=0.000347
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 930: train_error=0.000257, test_error=0.000364
- iteration 940: train_error=0.000257, test_error=0.000364
- iteration 950: train_error=0.000257, test_error=0.000364
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 850: train_error=0.000263, test_error=0.000347
+ iteration 860: train_error=0.000263, test_error=0.000347
+ iteration 870: train_error=0.000262, test_error=0.000346
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error=0.000256, test_error=0.000363
- iteration 970: train_error=0.000256, test_error=0.000363
- iteration 980: train_error=0.000256, test_error=0.000363
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 880: train_error=0.000262, test_error=0.000346
+ iteration 890: train_error=0.000262, test_error=0.000346
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 990: train_error=0.000255, test_error=0.000363
- iteration 1000: train_error=0.000255, test_error=0.000363Nearest neighbors of : Johnny Cash.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error=0.000261, test_error=0.000346
+ iteration 910: train_error=0.000261, test_error=0.000346
+ iteration 920: train_error=0.000261, test_error=0.000346
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 930: train_error=0.000260, test_error=0.000345
+ iteration 940: train_error=0.000260, test_error=0.000345
+ iteration 950: train_error=0.000260, test_error=0.000345
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error=0.000259, test_error=0.000345
+ iteration 970: train_error=0.000259, test_error=0.000345
+ iteration 980: train_error=0.000259, test_error=0.000344
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 990: train_error=0.000258, test_error=0.000344
+ iteration 1000: train_error=0.000258, test_error=0.000344Nearest neighbors of : Johnny Cash.
 [Found more than one matching artist. Other candidates: Johnny Cash &amp; Willie Nelson]
 </pre></div>
 </div>
@@ -3321,33 +3336,33 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
   <tbody>
     <tr>
       <th>712</th>
-      <td>0.070318</td>
+      <td>0.055784</td>
       <td>Johnny Cash</td>
     </tr>
     <tr>
-      <th>2708</th>
-      <td>0.054249</td>
-      <td>Gidropony</td>
+      <th>16968</th>
+      <td>0.051251</td>
+      <td>Riceboy Sleeps</td>
     </tr>
     <tr>
-      <th>7154</th>
-      <td>0.051584</td>
-      <td>Jack White &amp; Alicia Keys</td>
+      <th>13790</th>
+      <td>0.042951</td>
+      <td>Antonello Venditti</td>
     </tr>
     <tr>
-      <th>13462</th>
-      <td>0.049577</td>
-      <td>Siria</td>
+      <th>3021</th>
+      <td>0.042440</td>
+      <td>Polar Bear Club</td>
     </tr>
     <tr>
-      <th>16133</th>
-      <td>0.049458</td>
-      <td>Benjamin Wetherill</td>
+      <th>10392</th>
+      <td>0.040910</td>
+      <td>Colette Carr</td>
     </tr>
     <tr>
-      <th>4091</th>
-      <td>0.048504</td>
-      <td>LeCrae</td>
+      <th>6218</th>
+      <td>0.039689</td>
+      <td>TV-2</td>
     </tr>
   </tbody>
 </table>
@@ -3384,33 +3399,33 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
       <td>Johnny Cash</td>
     </tr>
     <tr>
-      <th>2708</th>
-      <td>0.655261</td>
-      <td>Gidropony</td>
+      <th>6218</th>
+      <td>0.598475</td>
+      <td>TV-2</td>
     </tr>
     <tr>
-      <th>1007</th>
-      <td>0.619879</td>
-      <td>Novaspace</td>
+      <th>3021</th>
+      <td>0.596209</td>
+      <td>Polar Bear Club</td>
     </tr>
     <tr>
-      <th>16133</th>
-      <td>0.604852</td>
-      <td>Benjamin Wetherill</td>
+      <th>4737</th>
+      <td>0.592499</td>
+      <td>Face to Face</td>
     </tr>
     <tr>
-      <th>13462</th>
-      <td>0.601102</td>
-      <td>Siria</td>
+      <th>16230</th>
+      <td>0.575613</td>
+      <td>The Recoys</td>
     </tr>
     <tr>
-      <th>5486</th>
-      <td>0.591738</td>
-      <td>Emigrate</td>
+      <th>10392</th>
+      <td>0.570717</td>
+      <td>Colette Carr</td>
     </tr>
   </tbody>
 </table>
-</div></div><img alt="_images/Recommender_System_39_38.png" src="_images/Recommender_System_39_38.png" />
+</div></div><img alt="_images/Recommender_System_39_41.png" src="_images/Recommender_System_39_41.png" />
 </div>
 </div>
 </div>
@@ -3485,414 +3500,413 @@ $<span class="math notranslate nohighlight">\(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error_observed=0.000341, test_error_observed=0.000313, observed_loss=0.000341, regularization_loss=0.017579, gravity_loss=0.000221
- iteration 10: train_error_observed=0.000329, test_error_observed=0.000302, observed_loss=0.000329, regularization_loss=0.017153, gravity_loss=0.000210
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 0: train_error_observed=0.000342, test_error_observed=0.000263, observed_loss=0.000342, regularization_loss=0.017476, gravity_loss=0.000218
+ iteration 10: train_error_observed=0.000331, test_error_observed=0.000253, observed_loss=0.000331, regularization_loss=0.017056, gravity_loss=0.000208
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 20: train_error_observed=0.000318, test_error_observed=0.000292, observed_loss=0.000318, regularization_loss=0.016745, gravity_loss=0.000200
- iteration 30: train_error_observed=0.000308, test_error_observed=0.000282, observed_loss=0.000308, regularization_loss=0.016352, gravity_loss=0.000190
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 20: train_error_observed=0.000320, test_error_observed=0.000243, observed_loss=0.000320, regularization_loss=0.016653, gravity_loss=0.000198
+ iteration 30: train_error_observed=0.000310, test_error_observed=0.000233, observed_loss=0.000310, regularization_loss=0.016265, gravity_loss=0.000188
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 40: train_error_observed=0.000298, test_error_observed=0.000273, observed_loss=0.000298, regularization_loss=0.015976, gravity_loss=0.000181
- iteration 50: train_error_observed=0.000289, test_error_observed=0.000264, observed_loss=0.000289, regularization_loss=0.015614, gravity_loss=0.000173
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 40: train_error_observed=0.000300, test_error_observed=0.000224, observed_loss=0.000300, regularization_loss=0.015893, gravity_loss=0.000179
+ iteration 50: train_error_observed=0.000291, test_error_observed=0.000216, observed_loss=0.000291, regularization_loss=0.015536, gravity_loss=0.000171
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 60: train_error_observed=0.000280, test_error_observed=0.000256, observed_loss=0.000280, regularization_loss=0.015267, gravity_loss=0.000164
- iteration 70: train_error_observed=0.000272, test_error_observed=0.000248, observed_loss=0.000272, regularization_loss=0.014933, gravity_loss=0.000156
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 60: train_error_observed=0.000283, test_error_observed=0.000208, observed_loss=0.000283, regularization_loss=0.015193, gravity_loss=0.000162
+ iteration 70: train_error_observed=0.000274, test_error_observed=0.000200, observed_loss=0.000274, regularization_loss=0.014864, gravity_loss=0.000155
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 80: train_error_observed=0.000264, test_error_observed=0.000241, observed_loss=0.000264, regularization_loss=0.014612, gravity_loss=0.000149
- iteration 90: train_error_observed=0.000257, test_error_observed=0.000233, observed_loss=0.000257, regularization_loss=0.014304, gravity_loss=0.000142
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 80: train_error_observed=0.000267, test_error_observed=0.000193, observed_loss=0.000267, regularization_loss=0.014547, gravity_loss=0.000147
+ iteration 90: train_error_observed=0.000259, test_error_observed=0.000186, observed_loss=0.000259, regularization_loss=0.014243, gravity_loss=0.000140
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 100: train_error_observed=0.000249, test_error_observed=0.000227, observed_loss=0.000249, regularization_loss=0.014008, gravity_loss=0.000135
- iteration 110: train_error_observed=0.000243, test_error_observed=0.000220, observed_loss=0.000243, regularization_loss=0.013723, gravity_loss=0.000129
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 100: train_error_observed=0.000252, test_error_observed=0.000179, observed_loss=0.000252, regularization_loss=0.013950, gravity_loss=0.000133
+ iteration 110: train_error_observed=0.000246, test_error_observed=0.000173, observed_loss=0.000246, regularization_loss=0.013669, gravity_loss=0.000127
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 120: train_error_observed=0.000236, test_error_observed=0.000214, observed_loss=0.000236, regularization_loss=0.013450, gravity_loss=0.000122
- iteration 130: train_error_observed=0.000230, test_error_observed=0.000208, observed_loss=0.000230, regularization_loss=0.013186, gravity_loss=0.000117
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 120: train_error_observed=0.000240, test_error_observed=0.000167, observed_loss=0.000240, regularization_loss=0.013398, gravity_loss=0.000121
+ iteration 130: train_error_observed=0.000234, test_error_observed=0.000162, observed_loss=0.000234, regularization_loss=0.013138, gravity_loss=0.000115
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 140: train_error_observed=0.000225, test_error_observed=0.000203, observed_loss=0.000225, regularization_loss=0.012933, gravity_loss=0.000111
- iteration 150: train_error_observed=0.000219, test_error_observed=0.000198, observed_loss=0.000219, regularization_loss=0.012689, gravity_loss=0.000106
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 140: train_error_observed=0.000228, test_error_observed=0.000156, observed_loss=0.000228, regularization_loss=0.012888, gravity_loss=0.000110
+ iteration 150: train_error_observed=0.000223, test_error_observed=0.000151, observed_loss=0.000223, regularization_loss=0.012647, gravity_loss=0.000105
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 160: train_error_observed=0.000214, test_error_observed=0.000193, observed_loss=0.000214, regularization_loss=0.012455, gravity_loss=0.000101
- iteration 170: train_error_observed=0.000209, test_error_observed=0.000188, observed_loss=0.000209, regularization_loss=0.012229, gravity_loss=0.000096
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 160: train_error_observed=0.000218, test_error_observed=0.000146, observed_loss=0.000218, regularization_loss=0.012415, gravity_loss=0.000100
+ iteration 170: train_error_observed=0.000213, test_error_observed=0.000142, observed_loss=0.000213, regularization_loss=0.012192, gravity_loss=0.000095
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 180: train_error_observed=0.000205, test_error_observed=0.000183, observed_loss=0.000205, regularization_loss=0.012012, gravity_loss=0.000091
- iteration 190: train_error_observed=0.000200, test_error_observed=0.000179, observed_loss=0.000200, regularization_loss=0.011803, gravity_loss=0.000087
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 180: train_error_observed=0.000208, test_error_observed=0.000137, observed_loss=0.000208, regularization_loss=0.011977, gravity_loss=0.000090
+ iteration 190: train_error_observed=0.000204, test_error_observed=0.000133, observed_loss=0.000204, regularization_loss=0.011771, gravity_loss=0.000086
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 200: train_error_observed=0.000196, test_error_observed=0.000175, observed_loss=0.000196, regularization_loss=0.011601, gravity_loss=0.000083
- iteration 210: train_error_observed=0.000192, test_error_observed=0.000171, observed_loss=0.000192, regularization_loss=0.011407, gravity_loss=0.000079
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 200: train_error_observed=0.000200, test_error_observed=0.000129, observed_loss=0.000200, regularization_loss=0.011571, gravity_loss=0.000082
+ iteration 210: train_error_observed=0.000196, test_error_observed=0.000126, observed_loss=0.000196, regularization_loss=0.011379, gravity_loss=0.000078
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 220: train_error_observed=0.000188, test_error_observed=0.000168, observed_loss=0.000188, regularization_loss=0.011220, gravity_loss=0.000075
- iteration 230: train_error_observed=0.000185, test_error_observed=0.000164, observed_loss=0.000185, regularization_loss=0.011039, gravity_loss=0.000072
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 220: train_error_observed=0.000192, test_error_observed=0.000122, observed_loss=0.000192, regularization_loss=0.011194, gravity_loss=0.000074
+ iteration 230: train_error_observed=0.000189, test_error_observed=0.000119, observed_loss=0.000189, regularization_loss=0.011016, gravity_loss=0.000071
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 240: train_error_observed=0.000181, test_error_observed=0.000161, observed_loss=0.000181, regularization_loss=0.010865, gravity_loss=0.000068
- iteration 250: train_error_observed=0.000178, test_error_observed=0.000158, observed_loss=0.000178, regularization_loss=0.010697, gravity_loss=0.000065
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 240: train_error_observed=0.000185, test_error_observed=0.000115, observed_loss=0.000185, regularization_loss=0.010844, gravity_loss=0.000067
+ iteration 250: train_error_observed=0.000182, test_error_observed=0.000112, observed_loss=0.000182, regularization_loss=0.010678, gravity_loss=0.000064
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 260: train_error_observed=0.000175, test_error_observed=0.000155, observed_loss=0.000175, regularization_loss=0.010536, gravity_loss=0.000062
- iteration 270: train_error_observed=0.000172, test_error_observed=0.000152, observed_loss=0.000172, regularization_loss=0.010379, gravity_loss=0.000059
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 260: train_error_observed=0.000179, test_error_observed=0.000109, observed_loss=0.000179, regularization_loss=0.010517, gravity_loss=0.000061
+ iteration 270: train_error_observed=0.000176, test_error_observed=0.000107, observed_loss=0.000176, regularization_loss=0.010363, gravity_loss=0.000058
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 280: train_error_observed=0.000169, test_error_observed=0.000149, observed_loss=0.000169, regularization_loss=0.010229, gravity_loss=0.000056
- iteration 290: train_error_observed=0.000167, test_error_observed=0.000146, observed_loss=0.000167, regularization_loss=0.010083, gravity_loss=0.000053
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 280: train_error_observed=0.000174, test_error_observed=0.000104, observed_loss=0.000174, regularization_loss=0.010214, gravity_loss=0.000055
+ iteration 290: train_error_observed=0.000171, test_error_observed=0.000102, observed_loss=0.000171, regularization_loss=0.010070, gravity_loss=0.000053
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 300: train_error_observed=0.000164, test_error_observed=0.000144, observed_loss=0.000164, regularization_loss=0.009942, gravity_loss=0.000051
- iteration 310: train_error_observed=0.000162, test_error_observed=0.000142, observed_loss=0.000162, regularization_loss=0.009806, gravity_loss=0.000048
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 300: train_error_observed=0.000169, test_error_observed=0.000099, observed_loss=0.000169, regularization_loss=0.009930, gravity_loss=0.000050
+ iteration 310: train_error_observed=0.000166, test_error_observed=0.000097, observed_loss=0.000166, regularization_loss=0.009796, gravity_loss=0.000048
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 320: train_error_observed=0.000160, test_error_observed=0.000139, observed_loss=0.000160, regularization_loss=0.009675, gravity_loss=0.000046
- iteration 330: train_error_observed=0.000158, test_error_observed=0.000137, observed_loss=0.000158, regularization_loss=0.009548, gravity_loss=0.000044
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 320: train_error_observed=0.000164, test_error_observed=0.000095, observed_loss=0.000164, regularization_loss=0.009666, gravity_loss=0.000046
+ iteration 330: train_error_observed=0.000162, test_error_observed=0.000093, observed_loss=0.000162, regularization_loss=0.009540, gravity_loss=0.000043
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 340: train_error_observed=0.000156, test_error_observed=0.000135, observed_loss=0.000156, regularization_loss=0.009425, gravity_loss=0.000042
- iteration 350: train_error_observed=0.000154, test_error_observed=0.000133, observed_loss=0.000154, regularization_loss=0.009307, gravity_loss=0.000040
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 340: train_error_observed=0.000160, test_error_observed=0.000091, observed_loss=0.000160, regularization_loss=0.009419, gravity_loss=0.000041
+ iteration 350: train_error_observed=0.000158, test_error_observed=0.000089, observed_loss=0.000158, regularization_loss=0.009301, gravity_loss=0.000039
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 360: train_error_observed=0.000152, test_error_observed=0.000132, observed_loss=0.000152, regularization_loss=0.009192, gravity_loss=0.000038
- iteration 370: train_error_observed=0.000150, test_error_observed=0.000130, observed_loss=0.000150, regularization_loss=0.009081, gravity_loss=0.000036
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 360: train_error_observed=0.000156, test_error_observed=0.000087, observed_loss=0.000156, regularization_loss=0.009187, gravity_loss=0.000038
+ iteration 370: train_error_observed=0.000155, test_error_observed=0.000085, observed_loss=0.000155, regularization_loss=0.009077, gravity_loss=0.000036
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 380: train_error_observed=0.000148, test_error_observed=0.000128, observed_loss=0.000148, regularization_loss=0.008973, gravity_loss=0.000034
- iteration 390: train_error_observed=0.000147, test_error_observed=0.000127, observed_loss=0.000147, regularization_loss=0.008869, gravity_loss=0.000033
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 380: train_error_observed=0.000153, test_error_observed=0.000084, observed_loss=0.000153, regularization_loss=0.008970, gravity_loss=0.000034
+ iteration 390: train_error_observed=0.000151, test_error_observed=0.000082, observed_loss=0.000151, regularization_loss=0.008867, gravity_loss=0.000032
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 400: train_error_observed=0.000145, test_error_observed=0.000125, observed_loss=0.000145, regularization_loss=0.008767, gravity_loss=0.000031
- iteration 410: train_error_observed=0.000144, test_error_observed=0.000124, observed_loss=0.000144, regularization_loss=0.008669, gravity_loss=0.000030
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 400: train_error_observed=0.000150, test_error_observed=0.000081, observed_loss=0.000150, regularization_loss=0.008766, gravity_loss=0.000031
+ iteration 410: train_error_observed=0.000149, test_error_observed=0.000079, observed_loss=0.000149, regularization_loss=0.008669, gravity_loss=0.000029
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 420: train_error_observed=0.000143, test_error_observed=0.000122, observed_loss=0.000143, regularization_loss=0.008574, gravity_loss=0.000028
- iteration 430: train_error_observed=0.000141, test_error_observed=0.000121, observed_loss=0.000141, regularization_loss=0.008482, gravity_loss=0.000027
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 420: train_error_observed=0.000147, test_error_observed=0.000078, observed_loss=0.000147, regularization_loss=0.008575, gravity_loss=0.000028
+ iteration 430: train_error_observed=0.000146, test_error_observed=0.000077, observed_loss=0.000146, regularization_loss=0.008484, gravity_loss=0.000027
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 440: train_error_observed=0.000140, test_error_observed=0.000120, observed_loss=0.000140, regularization_loss=0.008393, gravity_loss=0.000026
- iteration 450: train_error_observed=0.000139, test_error_observed=0.000119, observed_loss=0.000139, regularization_loss=0.008306, gravity_loss=0.000025
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 440: train_error_observed=0.000145, test_error_observed=0.000076, observed_loss=0.000145, regularization_loss=0.008395, gravity_loss=0.000025
+ iteration 450: train_error_observed=0.000144, test_error_observed=0.000075, observed_loss=0.000144, regularization_loss=0.008309, gravity_loss=0.000024
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 460: train_error_observed=0.000138, test_error_observed=0.000118, observed_loss=0.000138, regularization_loss=0.008221, gravity_loss=0.000023
- iteration 470: train_error_observed=0.000137, test_error_observed=0.000116, observed_loss=0.000137, regularization_loss=0.008140, gravity_loss=0.000022
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 460: train_error_observed=0.000143, test_error_observed=0.000073, observed_loss=0.000143, regularization_loss=0.008225, gravity_loss=0.000023
+ iteration 470: train_error_observed=0.000141, test_error_observed=0.000072, observed_loss=0.000141, regularization_loss=0.008144, gravity_loss=0.000022
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 480: train_error_observed=0.000136, test_error_observed=0.000115, observed_loss=0.000136, regularization_loss=0.008060, gravity_loss=0.000021
- iteration 490: train_error_observed=0.000135, test_error_observed=0.000114, observed_loss=0.000135, regularization_loss=0.007982, gravity_loss=0.000020
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 480: train_error_observed=0.000141, test_error_observed=0.000071, observed_loss=0.000141, regularization_loss=0.008065, gravity_loss=0.000021
+ iteration 490: train_error_observed=0.000140, test_error_observed=0.000071, observed_loss=0.000140, regularization_loss=0.007988, gravity_loss=0.000020
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 500: train_error_observed=0.000134, test_error_observed=0.000114, observed_loss=0.000134, regularization_loss=0.007907, gravity_loss=0.000019
- iteration 510: train_error_observed=0.000133, test_error_observed=0.000113, observed_loss=0.000133, regularization_loss=0.007834, gravity_loss=0.000018
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 500: train_error_observed=0.000139, test_error_observed=0.000070, observed_loss=0.000139, regularization_loss=0.007913, gravity_loss=0.000019
+ iteration 510: train_error_observed=0.000138, test_error_observed=0.000069, observed_loss=0.000138, regularization_loss=0.007840, gravity_loss=0.000018
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 520: train_error_observed=0.000132, test_error_observed=0.000112, observed_loss=0.000132, regularization_loss=0.007763, gravity_loss=0.000017
- iteration 530: train_error_observed=0.000132, test_error_observed=0.000111, observed_loss=0.000132, regularization_loss=0.007693, gravity_loss=0.000017
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 520: train_error_observed=0.000137, test_error_observed=0.000068, observed_loss=0.000137, regularization_loss=0.007769, gravity_loss=0.000017
+ iteration 530: train_error_observed=0.000136, test_error_observed=0.000067, observed_loss=0.000136, regularization_loss=0.007700, gravity_loss=0.000016
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 540: train_error_observed=0.000131, test_error_observed=0.000110, observed_loss=0.000131, regularization_loss=0.007625, gravity_loss=0.000016
- iteration 550: train_error_observed=0.000130, test_error_observed=0.000110, observed_loss=0.000130, regularization_loss=0.007560, gravity_loss=0.000015
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 540: train_error_observed=0.000136, test_error_observed=0.000067, observed_loss=0.000136, regularization_loss=0.007633, gravity_loss=0.000016
+ iteration 550: train_error_observed=0.000135, test_error_observed=0.000066, observed_loss=0.000135, regularization_loss=0.007568, gravity_loss=0.000015
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 560: train_error_observed=0.000129, test_error_observed=0.000109, observed_loss=0.000129, regularization_loss=0.007495, gravity_loss=0.000014
- iteration 570: train_error_observed=0.000129, test_error_observed=0.000108, observed_loss=0.000129, regularization_loss=0.007433, gravity_loss=0.000014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 560: train_error_observed=0.000134, test_error_observed=0.000065, observed_loss=0.000134, regularization_loss=0.007504, gravity_loss=0.000014
+ iteration 570: train_error_observed=0.000134, test_error_observed=0.000065, observed_loss=0.000134, regularization_loss=0.007442, gravity_loss=0.000014
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 580: train_error_observed=0.000128, test_error_observed=0.000108, observed_loss=0.000128, regularization_loss=0.007371, gravity_loss=0.000013
- iteration 590: train_error_observed=0.000128, test_error_observed=0.000107, observed_loss=0.000128, regularization_loss=0.007312, gravity_loss=0.000012
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 580: train_error_observed=0.000133, test_error_observed=0.000064, observed_loss=0.000133, regularization_loss=0.007381, gravity_loss=0.000013
+ iteration 590: train_error_observed=0.000132, test_error_observed=0.000063, observed_loss=0.000132, regularization_loss=0.007321, gravity_loss=0.000012
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 600: train_error_observed=0.000127, test_error_observed=0.000106, observed_loss=0.000127, regularization_loss=0.007253, gravity_loss=0.000012
- iteration 610: train_error_observed=0.000127, test_error_observed=0.000106, observed_loss=0.000127, regularization_loss=0.007197, gravity_loss=0.000011
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 600: train_error_observed=0.000132, test_error_observed=0.000063, observed_loss=0.000132, regularization_loss=0.007263, gravity_loss=0.000012
+ iteration 610: train_error_observed=0.000131, test_error_observed=0.000062, observed_loss=0.000131, regularization_loss=0.007207, gravity_loss=0.000011
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 620: train_error_observed=0.000126, test_error_observed=0.000105, observed_loss=0.000126, regularization_loss=0.007141, gravity_loss=0.000011
- iteration 630: train_error_observed=0.000126, test_error_observed=0.000105, observed_loss=0.000126, regularization_loss=0.007086, gravity_loss=0.000010
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 620: train_error_observed=0.000131, test_error_observed=0.000062, observed_loss=0.000131, regularization_loss=0.007151, gravity_loss=0.000011
+ iteration 630: train_error_observed=0.000130, test_error_observed=0.000061, observed_loss=0.000130, regularization_loss=0.007097, gravity_loss=0.000010
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 640: train_error_observed=0.000125, test_error_observed=0.000104, observed_loss=0.000125, regularization_loss=0.007033, gravity_loss=0.000010
- iteration 650: train_error_observed=0.000125, test_error_observed=0.000104, observed_loss=0.000125, regularization_loss=0.006981, gravity_loss=0.000009
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 640: train_error_observed=0.000130, test_error_observed=0.000061, observed_loss=0.000130, regularization_loss=0.007044, gravity_loss=0.000010
+ iteration 650: train_error_observed=0.000130, test_error_observed=0.000061, observed_loss=0.000130, regularization_loss=0.006992, gravity_loss=0.000009
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 660: train_error_observed=0.000124, test_error_observed=0.000104, observed_loss=0.000124, regularization_loss=0.006930, gravity_loss=0.000009
- iteration 670: train_error_observed=0.000124, test_error_observed=0.000103, observed_loss=0.000124, regularization_loss=0.006880, gravity_loss=0.000008
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 660: train_error_observed=0.000129, test_error_observed=0.000060, observed_loss=0.000129, regularization_loss=0.006942, gravity_loss=0.000009
+ iteration 670: train_error_observed=0.000129, test_error_observed=0.000060, observed_loss=0.000129, regularization_loss=0.006892, gravity_loss=0.000008
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 680: train_error_observed=0.000124, test_error_observed=0.000103, observed_loss=0.000124, regularization_loss=0.006832, gravity_loss=0.000008
- iteration 690: train_error_observed=0.000123, test_error_observed=0.000102, observed_loss=0.000123, regularization_loss=0.006784, gravity_loss=0.000008
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 680: train_error_observed=0.000128, test_error_observed=0.000059, observed_loss=0.000128, regularization_loss=0.006843, gravity_loss=0.000008
+ iteration 690: train_error_observed=0.000128, test_error_observed=0.000059, observed_loss=0.000128, regularization_loss=0.006796, gravity_loss=0.000008
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 700: train_error_observed=0.000123, test_error_observed=0.000102, observed_loss=0.000123, regularization_loss=0.006737, gravity_loss=0.000007
- iteration 710: train_error_observed=0.000123, test_error_observed=0.000102, observed_loss=0.000123, regularization_loss=0.006691, gravity_loss=0.000007
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 700: train_error_observed=0.000128, test_error_observed=0.000059, observed_loss=0.000128, regularization_loss=0.006749, gravity_loss=0.000007
+ iteration 710: train_error_observed=0.000128, test_error_observed=0.000058, observed_loss=0.000128, regularization_loss=0.006703, gravity_loss=0.000007
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 720: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006646, gravity_loss=0.000007
- iteration 730: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006601, gravity_loss=0.000006
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 720: train_error_observed=0.000127, test_error_observed=0.000058, observed_loss=0.000127, regularization_loss=0.006658, gravity_loss=0.000007
+ iteration 730: train_error_observed=0.000127, test_error_observed=0.000058, observed_loss=0.000127, regularization_loss=0.006614, gravity_loss=0.000006
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 740: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006558, gravity_loss=0.000006
- iteration 750: train_error_observed=0.000122, test_error_observed=0.000101, observed_loss=0.000122, regularization_loss=0.006515, gravity_loss=0.000006
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 740: train_error_observed=0.000127, test_error_observed=0.000058, observed_loss=0.000127, regularization_loss=0.006571, gravity_loss=0.000006
+ iteration 750: train_error_observed=0.000126, test_error_observed=0.000057, observed_loss=0.000126, regularization_loss=0.006528, gravity_loss=0.000006
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 760: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006473, gravity_loss=0.000005
- iteration 770: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006432, gravity_loss=0.000005
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 760: train_error_observed=0.000126, test_error_observed=0.000057, observed_loss=0.000126, regularization_loss=0.006486, gravity_loss=0.000005
+ iteration 770: train_error_observed=0.000126, test_error_observed=0.000057, observed_loss=0.000126, regularization_loss=0.006445, gravity_loss=0.000005
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006391, gravity_loss=0.000005
- iteration 790: train_error_observed=0.000121, test_error_observed=0.000100, observed_loss=0.000121, regularization_loss=0.006352, gravity_loss=0.000005
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 780: train_error_observed=0.000126, test_error_observed=0.000057, observed_loss=0.000126, regularization_loss=0.006405, gravity_loss=0.000005
+ iteration 790: train_error_observed=0.000126, test_error_observed=0.000056, observed_loss=0.000126, regularization_loss=0.006365, gravity_loss=0.000005
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 800: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006312, gravity_loss=0.000005
- iteration 810: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006274, gravity_loss=0.000004
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 800: train_error_observed=0.000125, test_error_observed=0.000056, observed_loss=0.000125, regularization_loss=0.006326, gravity_loss=0.000004
+ iteration 810: train_error_observed=0.000125, test_error_observed=0.000056, observed_loss=0.000125, regularization_loss=0.006287, gravity_loss=0.000004
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 820: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006236, gravity_loss=0.000004
- iteration 830: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006198, gravity_loss=0.000004
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 820: train_error_observed=0.000125, test_error_observed=0.000056, observed_loss=0.000125, regularization_loss=0.006250, gravity_loss=0.000004
+ iteration 830: train_error_observed=0.000125, test_error_observed=0.000056, observed_loss=0.000125, regularization_loss=0.006212, gravity_loss=0.000004
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006162, gravity_loss=0.000004
- iteration 850: train_error_observed=0.000120, test_error_observed=0.000099, observed_loss=0.000120, regularization_loss=0.006125, gravity_loss=0.000004
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 840: train_error_observed=0.000125, test_error_observed=0.000055, observed_loss=0.000125, regularization_loss=0.006175, gravity_loss=0.000004
+ iteration 850: train_error_observed=0.000125, test_error_observed=0.000055, observed_loss=0.000125, regularization_loss=0.006139, gravity_loss=0.000004
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 860: train_error_observed=0.000120, test_error_observed=0.000098, observed_loss=0.000120, regularization_loss=0.006090, gravity_loss=0.000003
- iteration 870: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.006054, gravity_loss=0.000003
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 860: train_error_observed=0.000124, test_error_observed=0.000055, observed_loss=0.000124, regularization_loss=0.006104, gravity_loss=0.000003
+ iteration 870: train_error_observed=0.000124, test_error_observed=0.000055, observed_loss=0.000124, regularization_loss=0.006068, gravity_loss=0.000003
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 880: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.006020, gravity_loss=0.000003
- iteration 890: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005985, gravity_loss=0.000003
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 880: train_error_observed=0.000124, test_error_observed=0.000055, observed_loss=0.000124, regularization_loss=0.006034, gravity_loss=0.000003
+ iteration 890: train_error_observed=0.000124, test_error_observed=0.000055, observed_loss=0.000124, regularization_loss=0.005999, gravity_loss=0.000003
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005952, gravity_loss=0.000003
- iteration 910: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005918, gravity_loss=0.000003
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 900: train_error_observed=0.000124, test_error_observed=0.000055, observed_loss=0.000124, regularization_loss=0.005966, gravity_loss=0.000003
+ iteration 910: train_error_observed=0.000124, test_error_observed=0.000054, observed_loss=0.000124, regularization_loss=0.005932, gravity_loss=0.000003
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 920: train_error_observed=0.000119, test_error_observed=0.000098, observed_loss=0.000119, regularization_loss=0.005885, gravity_loss=0.000003
- iteration 930: train_error_observed=0.000119, test_error_observed=0.000097, observed_loss=0.000119, regularization_loss=0.005853, gravity_loss=0.000002
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 920: train_error_observed=0.000124, test_error_observed=0.000054, observed_loss=0.000124, regularization_loss=0.005899, gravity_loss=0.000003
+ iteration 930: train_error_observed=0.000124, test_error_observed=0.000054, observed_loss=0.000124, regularization_loss=0.005867, gravity_loss=0.000002
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 940: train_error_observed=0.000119, test_error_observed=0.000097, observed_loss=0.000119, regularization_loss=0.005820, gravity_loss=0.000002
- iteration 950: train_error_observed=0.000119, test_error_observed=0.000097, observed_loss=0.000119, regularization_loss=0.005789, gravity_loss=0.000002
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 940: train_error_observed=0.000124, test_error_observed=0.000054, observed_loss=0.000124, regularization_loss=0.005835, gravity_loss=0.000002
+ iteration 950: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005803, gravity_loss=0.000002
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005757, gravity_loss=0.000002
- iteration 970: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005726, gravity_loss=0.000002
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 960: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005772, gravity_loss=0.000002
+ iteration 970: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005741, gravity_loss=0.000002
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 980: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005696, gravity_loss=0.000002
- iteration 990: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005665, gravity_loss=0.000002
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 980: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005710, gravity_loss=0.000002
+ iteration 990: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005680, gravity_loss=0.000002
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1000: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005635, gravity_loss=0.000002
- iteration 1010: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005606, gravity_loss=0.000002
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1000: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005650, gravity_loss=0.000002
+ iteration 1010: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005620, gravity_loss=0.000002
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1020: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005576, gravity_loss=0.000002
- iteration 1030: train_error_observed=0.000118, test_error_observed=0.000097, observed_loss=0.000118, regularization_loss=0.005547, gravity_loss=0.000002
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1020: train_error_observed=0.000123, test_error_observed=0.000054, observed_loss=0.000123, regularization_loss=0.005591, gravity_loss=0.000002
+ iteration 1030: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005561, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1040: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005519, gravity_loss=0.000001
- iteration 1050: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005490, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1040: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005533, gravity_loss=0.000001
+ iteration 1050: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005504, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1060: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005462, gravity_loss=0.000001
- iteration 1070: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005434, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1060: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005476, gravity_loss=0.000001
+ iteration 1070: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005448, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1080: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005406, gravity_loss=0.000001
- iteration 1090: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005379, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1080: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005420, gravity_loss=0.000001
+ iteration 1090: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005393, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1100: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005352, gravity_loss=0.000001
- iteration 1110: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005325, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1100: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005366, gravity_loss=0.000001
+ iteration 1110: train_error_observed=0.000123, test_error_observed=0.000053, observed_loss=0.000123, regularization_loss=0.005339, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1120: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005298, gravity_loss=0.000001
- iteration 1130: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005272, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1120: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005312, gravity_loss=0.000001
+ iteration 1130: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005286, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1140: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005246, gravity_loss=0.000001
- iteration 1150: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005220, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1140: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005259, gravity_loss=0.000001
+ iteration 1150: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005233, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1160: train_error_observed=0.000118, test_error_observed=0.000096, observed_loss=0.000118, regularization_loss=0.005194, gravity_loss=0.000001
- iteration 1170: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005168, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1160: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005208, gravity_loss=0.000001
+ iteration 1170: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005182, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1180: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005143, gravity_loss=0.000001
- iteration 1190: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005118, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1180: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005157, gravity_loss=0.000001
+ iteration 1190: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005131, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1200: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005093, gravity_loss=0.000001
- iteration 1210: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005068, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1200: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005106, gravity_loss=0.000001
+ iteration 1210: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005082, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1220: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005043, gravity_loss=0.000001
- iteration 1230: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.005019, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1220: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005057, gravity_loss=0.000001
+ iteration 1230: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005033, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1240: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004995, gravity_loss=0.000001
- iteration 1250: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004971, gravity_loss=0.000001
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1240: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.005008, gravity_loss=0.000001
+ iteration 1250: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.004984, gravity_loss=0.000001
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1260: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004947, gravity_loss=0.000001
- iteration 1270: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004923, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1260: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.004960, gravity_loss=0.000001
+ iteration 1270: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.004936, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1280: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004899, gravity_loss=0.000000
- iteration 1290: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004876, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1280: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.004913, gravity_loss=0.000000
+ iteration 1290: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.004889, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1300: train_error_observed=0.000117, test_error_observed=0.000096, observed_loss=0.000117, regularization_loss=0.004853, gravity_loss=0.000000
- iteration 1310: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004830, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1300: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.004866, gravity_loss=0.000000
+ iteration 1310: train_error_observed=0.000122, test_error_observed=0.000053, observed_loss=0.000122, regularization_loss=0.004843, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1320: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004807, gravity_loss=0.000000
- iteration 1330: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004784, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1320: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004820, gravity_loss=0.000000
+ iteration 1330: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004797, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1340: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004761, gravity_loss=0.000000
- iteration 1350: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004739, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1340: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004774, gravity_loss=0.000000
+ iteration 1350: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004752, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1360: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004716, gravity_loss=0.000000
- iteration 1370: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004694, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1360: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004730, gravity_loss=0.000000
+ iteration 1370: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004707, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1380: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004672, gravity_loss=0.000000
- iteration 1390: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004650, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1380: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004685, gravity_loss=0.000000
+ iteration 1390: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004663, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1400: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004628, gravity_loss=0.000000
- iteration 1410: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004607, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1400: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004641, gravity_loss=0.000000
+ iteration 1410: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004620, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1420: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004585, gravity_loss=0.000000
- iteration 1430: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004564, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1420: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004598, gravity_loss=0.000000
+ iteration 1430: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004577, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1440: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004543, gravity_loss=0.000000
- iteration 1450: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004521, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1440: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004555, gravity_loss=0.000000
+ iteration 1450: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004534, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1460: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004500, gravity_loss=0.000000
- iteration 1470: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004479, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1460: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004513, gravity_loss=0.000000
+ iteration 1470: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004492, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1480: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004459, gravity_loss=0.000000
- iteration 1490: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004438, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1480: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004471, gravity_loss=0.000000
+ iteration 1490: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004450, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1500: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004417, gravity_loss=0.000000
- iteration 1510: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004397, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1500: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004430, gravity_loss=0.000000
+ iteration 1510: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004409, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1520: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004377, gravity_loss=0.000000
- iteration 1530: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004356, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1520: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004389, gravity_loss=0.000000
+ iteration 1530: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004369, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1540: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004336, gravity_loss=0.000000
- iteration 1550: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004316, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1540: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004348, gravity_loss=0.000000
+ iteration 1550: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004328, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1560: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004296, gravity_loss=0.000000
- iteration 1570: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004276, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1560: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004308, gravity_loss=0.000000
+ iteration 1570: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004288, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1580: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004257, gravity_loss=0.000000
- iteration 1590: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004237, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1580: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004269, gravity_loss=0.000000
+ iteration 1590: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004249, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1600: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004218, gravity_loss=0.000000
- iteration 1610: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004198, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1600: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004230, gravity_loss=0.000000
+ iteration 1610: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004210, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1620: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004179, gravity_loss=0.000000
- iteration 1630: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004160, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1620: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004191, gravity_loss=0.000000
+ iteration 1630: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004171, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1640: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004141, gravity_loss=0.000000
- iteration 1650: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004122, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1640: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004152, gravity_loss=0.000000
+ iteration 1650: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004133, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1660: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004103, gravity_loss=0.000000
- iteration 1670: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004084, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1660: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004114, gravity_loss=0.000000
+ iteration 1670: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004096, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1680: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004065, gravity_loss=0.000000
- iteration 1690: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004047, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1680: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004077, gravity_loss=0.000000
+ iteration 1690: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004058, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1700: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004028, gravity_loss=0.000000
- iteration 1710: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.004010, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1700: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004040, gravity_loss=0.000000
+ iteration 1710: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004021, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1720: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003991, gravity_loss=0.000000
- iteration 1730: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003973, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1720: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.004003, gravity_loss=0.000000
+ iteration 1730: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003984, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1740: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003955, gravity_loss=0.000000
- iteration 1750: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003937, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1740: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003966, gravity_loss=0.000000
+ iteration 1750: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003948, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1760: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003919, gravity_loss=0.000000
- iteration 1770: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003901, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1760: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003930, gravity_loss=0.000000
+ iteration 1770: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003912, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1780: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003883, gravity_loss=0.000000
- iteration 1790: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003866, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1780: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003894, gravity_loss=0.000000
+ iteration 1790: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003876, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1800: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003848, gravity_loss=0.000000
- iteration 1810: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003830, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1800: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003859, gravity_loss=0.000000
+ iteration 1810: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003841, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1820: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003813, gravity_loss=0.000000
- iteration 1830: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003796, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1820: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003824, gravity_loss=0.000000
+ iteration 1830: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003806, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1840: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003778, gravity_loss=0.000000
- iteration 1850: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003761, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1840: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003789, gravity_loss=0.000000
+ iteration 1850: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003772, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1860: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003744, gravity_loss=0.000000
- iteration 1870: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003727, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1860: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003755, gravity_loss=0.000000
+ iteration 1870: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003737, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1880: train_error_observed=0.000117, test_error_observed=0.000095, observed_loss=0.000117, regularization_loss=0.003710, gravity_loss=0.000000
- iteration 1890: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003693, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1880: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003720, gravity_loss=0.000000
+ iteration 1890: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003704, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1900: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003676, gravity_loss=0.000000
- iteration 1910: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003660, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1900: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003687, gravity_loss=0.000000
+ iteration 1910: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003670, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1920: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003643, gravity_loss=0.000000
- iteration 1930: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003626, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1920: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003653, gravity_loss=0.000000
+ iteration 1930: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003637, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1940: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003610, gravity_loss=0.000000
- iteration 1950: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003593, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1940: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003620, gravity_loss=0.000000
+ iteration 1950: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003604, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1960: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003577, gravity_loss=0.000000
- iteration 1970: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003561, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1960: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003587, gravity_loss=0.000000
+ iteration 1970: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003571, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1980: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003545, gravity_loss=0.000000
- iteration 1990: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003529, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 1980: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003555, gravity_loss=0.000000
+ iteration 1990: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003539, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 2000: train_error_observed=0.000118, test_error_observed=0.000095, observed_loss=0.000118, regularization_loss=0.003513, gravity_loss=0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> iteration 2000: train_error_observed=0.000122, test_error_observed=0.000052, observed_loss=0.000122, regularization_loss=0.003523, gravity_loss=0.000000
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;train_error_observed&#39;: 0.000117582786,
-  &#39;test_error_observed&#39;: 9.5125186e-05},
- {&#39;observed_loss&#39;: 0.000117582786,
-  &#39;regularization_loss&#39;: 0.0035125446,
-  &#39;gravity_loss&#39;: 2.7568014e-08}]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;train_error_observed&#39;: 0.00012242547, &#39;test_error_observed&#39;: 5.2216194e-05},
+ {&#39;observed_loss&#39;: 0.00012242547,
+  &#39;regularization_loss&#39;: 0.0035225393,
+  &#39;gravity_loss&#39;: 2.7017721e-08}]
 </pre></div>
 </div>
 <img alt="_images/Recommender_System_43_102.png" src="_images/Recommender_System_43_102.png" />
@@ -3937,33 +3951,33 @@ $<span class="math notranslate nohighlight">\(
   <tbody>
     <tr>
       <th>712</th>
-      <td>0.070318</td>
+      <td>0.055784</td>
       <td>Johnny Cash</td>
     </tr>
     <tr>
-      <th>2708</th>
-      <td>0.054249</td>
-      <td>Gidropony</td>
+      <th>16968</th>
+      <td>0.051251</td>
+      <td>Riceboy Sleeps</td>
     </tr>
     <tr>
-      <th>7154</th>
-      <td>0.051584</td>
-      <td>Jack White &amp; Alicia Keys</td>
+      <th>13790</th>
+      <td>0.042951</td>
+      <td>Antonello Venditti</td>
     </tr>
     <tr>
-      <th>13462</th>
-      <td>0.049577</td>
-      <td>Siria</td>
+      <th>3021</th>
+      <td>0.042440</td>
+      <td>Polar Bear Club</td>
     </tr>
     <tr>
-      <th>16133</th>
-      <td>0.049458</td>
-      <td>Benjamin Wetherill</td>
+      <th>10392</th>
+      <td>0.040910</td>
+      <td>Colette Carr</td>
     </tr>
     <tr>
-      <th>4091</th>
-      <td>0.048504</td>
-      <td>LeCrae</td>
+      <th>6218</th>
+      <td>0.039689</td>
+      <td>TV-2</td>
     </tr>
   </tbody>
 </table>
@@ -4000,29 +4014,29 @@ $<span class="math notranslate nohighlight">\(
       <td>Johnny Cash</td>
     </tr>
     <tr>
-      <th>2708</th>
-      <td>0.655261</td>
-      <td>Gidropony</td>
+      <th>6218</th>
+      <td>0.598475</td>
+      <td>TV-2</td>
     </tr>
     <tr>
-      <th>1007</th>
-      <td>0.619879</td>
-      <td>Novaspace</td>
+      <th>3021</th>
+      <td>0.596209</td>
+      <td>Polar Bear Club</td>
     </tr>
     <tr>
-      <th>16133</th>
-      <td>0.604852</td>
-      <td>Benjamin Wetherill</td>
+      <th>4737</th>
+      <td>0.592499</td>
+      <td>Face to Face</td>
     </tr>
     <tr>
-      <th>13462</th>
-      <td>0.601102</td>
-      <td>Siria</td>
+      <th>16230</th>
+      <td>0.575613</td>
+      <td>The Recoys</td>
     </tr>
     <tr>
-      <th>5486</th>
-      <td>0.591738</td>
-      <td>Emigrate</td>
+      <th>10392</th>
+      <td>0.570717</td>
+      <td>Colette Carr</td>
     </tr>
   </tbody>
 </table>
@@ -4046,13 +4060,13 @@ $<span class="math notranslate nohighlight">\(
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: lyricsgenius in /Users/dockreg/anaconda3/lib/python3.7/site-packages (3.0.1)
-Requirement already satisfied: requests&gt;=2.20.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from lyricsgenius) (2.26.0)
 Requirement already satisfied: beautifulsoup4&gt;=4.6.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from lyricsgenius) (4.10.0)
+Requirement already satisfied: requests&gt;=2.20.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from lyricsgenius) (2.26.0)
 Requirement already satisfied: soupsieve&gt;1.2 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from beautifulsoup4&gt;=4.6.0-&gt;lyricsgenius) (2.2.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (2.0.4)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (1.26.6)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (1.26.6)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (2.0.4)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (3.2)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/dockreg/anaconda3/lib/python3.7/site-packages (from requests&gt;=2.20.0-&gt;lyricsgenius) (2021.10.8)
 </pre></div>
@@ -4163,12 +4177,36 @@ Because you&#39;re mine, I walk the line
 I keep a close watch on this heart of mine
 I keep my eyes wide open all the time
 I keep the ends out for the tie that binds
-Because you&#39;re mine, I walk the line
+Because you&#39;re mine, I walk the line22EmbedShare URLCopyEmbedCopy
 </pre></div>
 </div>
 </div>
 </div>
 <img src="https://www.billboard.com/wp-content/uploads/media/johnny-cash-bw-portrait-klm-billboard-1548.jpg" width=750 height=400 /></div>
+<span id="document-zbibliography"></span><div class="tex2jax_ignore mathjax_ignore section" id="bibliography">
+<h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
+<p id="id1"><dl class="citation">
+<dt class="label" id="id7"><span class="brackets">Can11</span></dt>
+<dd><p>Iván Cantador. <em>Proceedings of the 2nd International Workshop on Information Heterogeneity and Fusion in Recommender Systems (HetRec 2011): 27th October 2011, Chicago, IL, USA</em>. ACM, 2011.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">GNOT92</span></dt>
+<dd><p>David Goldberg, David Nichols, Brian M Oki, and Douglas Terry. Using collaborative filtering to weave an information tapestry. <em>Communications of the ACM</em>, 35(12):61–70, 1992.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">GUH15</span></dt>
+<dd><p>Carlos A Gomez-Uribe and Neil Hunt. The netflix recommender system: algorithms, business value, and innovation. <em>ACM Transactions on Management Information Systems (TMIS)</em>, 6(4):1–19, 2015.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">KBV09</span></dt>
+<dd><p>Yehuda Koren, Robert Bell, and Chris Volinsky. Matrix factorization techniques for recommender systems. <em>Computer</em>, 42(8):30–37, 2009.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">MLH+18</span></dt>
+<dd><p>James McInerney, Benjamin Lacker, Samantha Hansen, Karl Higley, Hugues Bouchard, Alois Gruson, and Rishabh Mehrotra. Explore, exploit, and explain: personalizing explainable recommendations with bandits. In <em>Proceedings of the 12th ACM conference on recommender systems</em>, 31–39. 2018.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">Pro21</span></dt>
+<dd><p>ProducerHive. A.i. &amp; the future of music. 2021. URL: <a class="reference external" href="https://producerhive.com/editorial/artificial-intelligence-and-the-future-of-music/">https://producerhive.com/editorial/artificial-intelligence-and-the-future-of-music/</a> (visited on 2021-11-23).</p>
+</dd>
+</dl>
+</p>
+</div>
 </div>
 </div>
 

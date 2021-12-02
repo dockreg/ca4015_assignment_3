@@ -1,4 +1,0 @@
-# Bibliography
-
-
-:style: plain
