@@ -17,7 +17,7 @@
 - The goal is to create a executable jupyter notebook which will recommend an artist to a user based on their previous listening habits.
 
 ## Project Status
-Project is: in progress
+Project is: completed
 
 ## Lyric retrieval
 This music recommender system also has a novel lyric retrieval system using the ```lyrics genius``` API to display the lyrics of any song entered into the program.
